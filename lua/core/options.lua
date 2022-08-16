@@ -11,8 +11,8 @@ vim.opt.softtabstop = indent_width
 -- set rest of options
 for k,v in pairs(vimopts) do
   -- add append helper
-  if require("utils.string").starts(v, "+=") then
-    v = vim.opt[k]:append(v:sub(2))
+  if require("utils.string").starts(v, "{+=}") then
+    v = vim.opt[k]:append(v:sub(4)) -- append value without the prefix
   end
 
   vim.opt[k] = v

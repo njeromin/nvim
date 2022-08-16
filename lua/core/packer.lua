@@ -20,7 +20,10 @@ if not ok then return end
 
 packer.startup({
   function (use, use_rocks)
-    local p_ok, plugins = pcall(require, "plugins")
+		-- allow packer to manage itself
+		use("wbthomason/packer.nvim")
+		
+		local p_ok, plugins = pcall(require, "plugins")
 
     plugins.rocks = plugins.rocks or {}
     plugins.nvim = plugins.nvim or {}

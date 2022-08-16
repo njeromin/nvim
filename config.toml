@@ -16,8 +16,8 @@ mouse = "a"
 number = true
 numberwidth = true
 ruler = false
-shortmess = "+=sI"
-whichwrap = "+=<>[]hl"
+shortmess = "{+=}sI"
+whichwrap = "{+=}<>[]hl"
 signcolumn = "yes"
 splitbelow = true
 splitright = true
