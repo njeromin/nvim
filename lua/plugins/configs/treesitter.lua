@@ -5,8 +5,12 @@ local opts = {
     enable = true,
     use_languagetree = true
   },
+}
 
-  textobjects = {
+local treesitter_opts = _G.config.options.treesitter
+
+if treesitter_opts.textobjects then
+  opts.textobjects = {
     select = {
       enable = true,
       lookahead = true
@@ -14,8 +18,14 @@ local opts = {
     lsp_interop = {
       enable = true,
       border = "none"
-    }
+    },
   }
-}
+end
+
+if treesitter_opts.rainbow_pairs then
+  opts.rainbow = {
+    enable = true,
+  }
+end
 
 treesitter.setup(opts)

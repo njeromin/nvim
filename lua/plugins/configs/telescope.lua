@@ -2,4 +2,6 @@ local telescope = require("telescope")
 
 telescope.setup()
 
-telescope.load_extensions("notify")
+if packer_plugins["nvim-notify"] then
+  telescope.load_extension("notify")
+end
