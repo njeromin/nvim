@@ -8,12 +8,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- autocmd to autocompile
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins/init.lua source <afile> | PackerCompile
-  augroup end
-]])
+vim.api.nvim_create_augroup("packer_user_config", { clear = false })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = "packer_user_config",
+  pattern = string.format("%s/lua/plugins/*", vim.fn.stdpath("config")),
+  callback = function ()
+    pcall(string.format("%s/lua/core/packer.lua", vim.fn.stdpath("config")))
+    SafeRequire("packer", function (packer) packer.compile() end)
+  end
+})
 
 local ok, packer = pcall(require, "packer")
 if not ok then return end
@@ -22,19 +25,16 @@ packer.startup({
   function (use, use_rocks)
 		-- allow packer to manage itself
 		use("wbthomason/packer.nvim")
-		
+
 		local p_ok, plugins = pcall(require, "plugins")
 
-    plugins.rocks = plugins.rocks or {}
-    plugins.nvim = plugins.nvim or {}
-
     if p_ok then
-      for key, value in pairs(plugins.rocks) do
+      for key, value in pairs(plugins.rocks or {}) do
         table.insert(value, 1, key)
         use_rocks(value)
       end
 
-      for key, value in pairs(plugins.nvim) do
+      for key, value in pairs(plugins.nvim or {}) do
         table.insert(value, 1, key)
         use(value)
       end

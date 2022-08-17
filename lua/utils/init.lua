@@ -21,11 +21,4 @@ M.readAll = function(file)
   return content
 end
 
-M.loadConfig = function ()
-  local ok, toml = pcall(require, "lua-toml")
-  if not ok then return {} end
-
-  return toml.parse(M.readAll(vim.fn.stdpath("config").."/config.toml"))
-end
-
 return M
