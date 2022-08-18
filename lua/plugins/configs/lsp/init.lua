@@ -14,13 +14,7 @@ local default_config = {
 }
 
 local function default_handler(server_name, custom_opts)
-  local config = default_config
-
-  if custom_opts then
-    vim.tbl_extend("keep", config, custom_opts)
-  end
-
-  lspconfig[server_name].setup(config)
+  lspconfig[server_name].setup(vim.tbl_extend("keep", default_config, custom_opts or {}))
 end
 
 masonlsp.setup_handlers({
@@ -36,5 +30,17 @@ masonlsp.setup_handlers({
       runtime_path = true,
     })
     default_handler("sumneko_lua", luadev)
+  end,
+
+  ["arduino_language_server"] = function ()
+    default_handler("arduino_language_server", {
+      cmd = {
+        "arduino-language-server",
+        "-cli-config", "",
+        "-fqbn", "arduino:avr:uno",
+        "-cli", "arduino-cli",
+        "-clangd", "clangd",
+      },
+    })
   end
 })

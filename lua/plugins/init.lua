@@ -16,6 +16,9 @@ M.nvim = {
   ["antoinemadec/FixCursorHold.nvim"] = {
     config = function () vim.g.cursorhold_updatetime = 100 end,
   },
+  ["stevearc/dressing.nvim"] = {
+    config = require("utils").requirePluginConfig("dressing"),
+  },
 
   ["RRethy/nvim-base16"] = {
     config = SafeRequire("theme"),
@@ -50,6 +53,7 @@ M.nvim = {
   },
 
   -- lsp
+  ["stevearc/vim-arduino"] = {},
   ["folke/lua-dev.nvim"] = {},
   ["onsails/lspkind.nvim"] = {},
   ["neovim/nvim-lspconfig"] = {
