@@ -14,6 +14,10 @@ M.combineTables = function (a, b)
   return result
 end
 
+M.requirePluginConfig = function (configName, handler)
+  SafeRequire(string.format("plugins.configs.%s", configName), handler)
+end
+
 M.readAll = function(file)
   local f = assert(io.open(file, "rb"))
   local content = f:read("*all")

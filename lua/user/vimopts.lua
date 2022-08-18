@@ -20,6 +20,10 @@ return {
 	splitright = true,
 	termguicolors = true,
 	undofile = true,
+  foldcolumn = "1",
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldenable = true,
 	timeoutlen = 400,
 	updatetime = 250,
 }

@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   group = "packer_user_config",
   pattern = string.format("%s/lua/plugins/*", vim.fn.stdpath("config")),
   callback = function ()
-    pcall(string.format("%s/lua/core/packer.lua", vim.fn.stdpath("config")))
+    pcall(require, string.format("%s/lua/core/packer.lua", vim.fn.stdpath("config")))
     SafeRequire("packer", function (packer) packer.compile() end)
   end
 })
@@ -26,18 +26,16 @@ packer.startup({
 		-- allow packer to manage itself
 		use("wbthomason/packer.nvim")
 
-		local p_ok, plugins = pcall(require, "plugins")
+		local plugins = require("plugins")
 
-    if p_ok then
-      for key, value in pairs(plugins.rocks or {}) do
-        table.insert(value, 1, key)
-        use_rocks(value)
-      end
+    for key, value in pairs(plugins.rocks) do
+      table.insert(value, 1, key)
+      use_rocks(value)
+    end
 
-      for key, value in pairs(plugins.nvim or {}) do
-        table.insert(value, 1, key)
-        use(value)
-      end
+    for key, value in pairs(plugins.nvim) do
+      table.insert(value, 1, key)
+      use(value)
     end
 
     -- bootstrap if needed
