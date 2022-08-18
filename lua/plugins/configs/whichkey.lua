@@ -21,5 +21,5 @@ wk.register({
   },
 
   m = { "<cmd>Mason<cr>", "  Open Mason" },
-  e = { "<cmd>NvimTreeFocus<cr>", "פּ  Focus Tree" },
+  e = { function () require("nvim-tree").focus() end, "פּ  Focus Tree" },
 }, { prefix = "<leader>" })

@@ -1,4 +1,4 @@
-return { 
+return {
 	laststatus = 3,
 	showmode = false,
 	title = true,
@@ -6,12 +6,12 @@ return {
 	cursorline = true,
 	expandtab = true,
   smartindent = true,
-	fillchars = { eob = " " },
+	fillchars = { eob = " ", fold = " ",  foldopen = "", foldsep = " ", foldclose = "" },
 	ignorecase = true,
 	smartcase = true,
 	mouse = "a",
 	number = true,
-	numberwidth = 2,
+	numberwidth = 1,
 	ruler = false,
 	shortmess = vim.opt.shortmess:append("sI"),
 	whichwrap = vim.opt.whichwrap:append("<>[]hl"),

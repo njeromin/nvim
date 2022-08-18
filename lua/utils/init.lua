@@ -1,18 +1,18 @@
 local M = {}
 
-M.combineTables = function (a, b)
-  local result = {}
-
-  for _,v in pairs ( a ) do
-    table.insert( result, v )
-  end
-
-  for _,v in pairs ( b ) do
-    table.insert( result, v )
-  end
-
-  return result
-end
+--M.combineTables = function (a, b)
+--  local result = {}
+--
+--  for _,v in pairs ( a ) do
+--    table.insert( result, v )
+--  end
+--
+--  for _,v in pairs ( b ) do
+--    table.insert( result, v )
+--  end
+--
+--  return result
+-- end
 
 M.requirePluginConfig = function (configName, handler)
   SafeRequire(string.format("plugins.configs.%s", configName), handler)

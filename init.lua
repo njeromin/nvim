@@ -9,6 +9,10 @@ function SafeRequire(package_name, handler)
     if type(handler) == "function" then
       handler(package)
 	  end
+  elseif packer_plugins["nvim-notify"] then
+    require("notify")(tostring(package), "error", {
+      title = string.format("Failed to require '%s'", package_name)
+    })
   end
 end
 

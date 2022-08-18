@@ -4,7 +4,6 @@ local ts_opts = opts.treesitter or {}
 local M = {}
 
 M.rocks = {
-  ["inspect"] = {},
 	["toml"] = {},
 }
 
@@ -51,8 +50,16 @@ M.nvim = {
   },
 
   -- lsp
+  ["folke/lua-dev.nvim"] = {},
+  ["onsails/lspkind.nvim"] = {},
   ["neovim/nvim-lspconfig"] = {
+    requires = {
+      "lua-dev.nvim",
+    },
     config = require("utils").requirePluginConfig("lsp")
+  },
+  ["j-hui/fidget.nvim"] = {
+    config = require("utils").requirePluginConfig("fidget"),
   },
 
   -- completion
@@ -65,16 +72,21 @@ M.nvim = {
     event = "InsertEnter",
   },
   ["hrsh7th/nvim-cmp"] = {
-    
+    config = require("utils").requirePluginConfig("lsp.completion"),
   },
   ["L3MON4D3/LuaSnip"] = {
-    
+    config = require("utils").requirePluginConfig("lsp.luasnip"),
   },
 
   ["kevinhwang91/nvim-ufo"] = {
     config = require("utils").requirePluginConfig("ufo"),
   },
-
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    config = require("utils").requirePluginConfig("indent-blankline"),
+  },
+  ["lewis6991/gitsigns.nvim"] = {
+    config = function () require("gitsigns").setup() end,
+  },
   ["kyazdani42/nvim-tree.lua"] = {
     config = require("utils").requirePluginConfig("nvim-tree"),
   },
