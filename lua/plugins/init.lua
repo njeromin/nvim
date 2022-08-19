@@ -82,6 +82,11 @@ M.nvim = {
     config = require("utils").requirePluginConfig("lsp.luasnip"),
   },
 
+  -- formatting
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+      config = require("utils").requirePluginConfig("lsp.null"),
+  },
+
   ["kevinhwang91/nvim-ufo"] = {
     config = require("utils").requirePluginConfig("ufo"),
   },
@@ -99,7 +104,7 @@ M.nvim = {
   },
   ["Pocco81/auto-save.nvim"] = {
     disable = not opts.autosave,
-    config = function () require("auto-save").setup() end,
+    config = require("utils").requirePluginConfig("autosave"),
   },
   ["folke/which-key.nvim"] = {
     config = require("utils").requirePluginConfig("whichkey"),

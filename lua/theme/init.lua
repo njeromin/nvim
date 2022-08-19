@@ -8,7 +8,7 @@ local utils = require("utils.colours")
 -- nvim
 local splitbg = utils.darken(colours.bg, 8)
 hi.VertSplit = { guibg = splitbg, guifg = splitbg }
-hi.WinSeparator = { guibg = splitbg, guifg = splitbg }
+hi.WinSeparator = { guifg = colours.bg4 }
 
 -- float
 local floatbg = utils.darken(colours.bg, 5)
