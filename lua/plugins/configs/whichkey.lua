@@ -13,6 +13,7 @@ all_register({
 
 wk.register({
   ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Cycle Bufferline" },
+  ["q"] = { "<cmd>qa<cr>", "Exit" },
 })
 
 wk.register({
@@ -32,6 +33,6 @@ wk.register({
   },
 
   m = { "<cmd>Mason<cr>", "  Open Mason" },
-  t = { "<cmd>TroubleToggle<cr>", "飯 Toggle Traffic " },
+  t = { "<cmd>TroubleToggle<cr>", "飯 Toggle Traffic "},
   e = { function () require("nvim-tree").focus() end, "פּ  Focus Tree" },
 }, { prefix = "<leader>" })
