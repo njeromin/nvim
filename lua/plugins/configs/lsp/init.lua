@@ -7,8 +7,14 @@ local m_ok, masonlsp = pcall(require, "mason-lspconfig")
 local l_ok, lspconfig = pcall(require, "lspconfig")
 if not m_ok or not l_ok then return end
 
+local default_attach = function (client, bufnr)
+  local ok, navic = pcall(require, "nvim-navic")
+  if ok then navic.attach(client, bufnr) end
+end
+
 local default_config = {
   capabilities = capabilities,
+  on_attach = default_attach,
 }
 
 local function default_handler(server_name, custom_opts)
@@ -17,6 +23,42 @@ end
 
 masonlsp.setup_handlers({
   default_handler,
+
+  ["sumneko_lua"] = function ()
+    local luadev = require("lua-dev").setup({
+      library = {
+        vimruntime = true,
+        types = true,
+        plugins = true,
+      },
+      runtime_path = true,
+      lspconfig = vim.tbl_extend("keep", default_config, {
+        settings = {
+          Lua = {
+            workspace = {
+              checkThirdParty = false,
+            },
+          },
+        },
+      }),
+    })
+    default_handler("sumneko_lua", luadev)
+  end,
+
+  ["rust_analyzer"] = function ()
+    local ok, rt = pcall(require, "rust-tools")
+    if ok then
+      rt.setup(default_config)
+    else
+      default_handler("rust_analyzer")
+    end
+  end,
+
+  ["gopls"] = function ()
+    local ok, go = pcall(require, "go")
+    if ok then go.setup() end
+    default_handler("gopls")
+  end,
 
   ["jsonls"] = function ()
     default_handler("jsonls", {
@@ -27,23 +69,6 @@ masonlsp.setup_handlers({
         }
       }
     })
-  end,
-
-  ["sumneko_lua"] = function ()
-    local luadev = require("lua-dev").setup({
-      library = {
-        vimruntime = true,
-        types = true,
-        plugins = true,
-      },
-      runtime_path = true,
-    })
-    default_handler("sumneko_lua", luadev)
-  end,
-
-  ["rust_analyzer"] = function ()
-    require("rust-tools").setup(vim.tbl_extend("keep", default_config, {
-    }))
   end,
 
   ["arduino_language_server"] = function ()

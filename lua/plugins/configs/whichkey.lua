@@ -2,7 +2,7 @@ local ok, wk = pcall(require, "which-key")
 if not ok then return end
 
 local function all_register(mappings)
-  for _, mode in pairs({ "n", "i", "ic", "v", "x", "s", "o", "c", "l", "t" }) do
+  for _, mode in pairs({ "n", "i", "v", "x", "s", "o", "c", "t" }) do
     wk.register(mappings, { mode = mode })
   end
 end

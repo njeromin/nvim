@@ -50,17 +50,24 @@ M.nvim = {
     config = function () require("spellsitter").setup() end,
   },
 
+  ["SmiteshP/nvim-navic"] = {
+    config = require("utils").requirePluginConfig("navic"),
+  },
+
   -- lsp
   ["b0o/SchemaStore.nvim"] = {},
   ["stevearc/vim-arduino"] = {},
   ["folke/lua-dev.nvim"] = {},
   ["simrat39/rust-tools.nvim"] = {},
+  ["ray-x/go.nvim"] = {},
   ["onsails/lspkind.nvim"] = {},
   ["neovim/nvim-lspconfig"] = {
     wants = {
       "mason-lspconfig.nvim",
       "SchemaStore.nvim",
       "vim-arduino",
+      "rust-tools.nvim",
+      "go.nvim",
       "lua-dev.nvim",
       "lspkind.nvim",
     },
