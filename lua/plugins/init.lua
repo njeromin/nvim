@@ -1,11 +1,9 @@
-local opts = _G.config.options or {}
+local opts = require("user.config") or {}
 local ts_opts = opts.treesitter or {}
 
 local M = {}
 
-M.rocks = {
-	["toml"] = {},
-}
+M.rocks = {}
 
 M.nvim = {
   ["lewis6991/impatient.nvim"] = {},
@@ -53,12 +51,18 @@ M.nvim = {
   },
 
   -- lsp
+  ["b0o/SchemaStore.nvim"] = {},
   ["stevearc/vim-arduino"] = {},
   ["folke/lua-dev.nvim"] = {},
+  ["simrat39/rust-tools.nvim"] = {},
   ["onsails/lspkind.nvim"] = {},
   ["neovim/nvim-lspconfig"] = {
-    requires = {
+    wants = {
+      "mason-lspconfig.nvim",
+      "SchemaStore.nvim",
+      "vim-arduino",
       "lua-dev.nvim",
+      "lspkind.nvim",
     },
     config = require("utils").requirePluginConfig("lsp")
   },
@@ -67,33 +71,61 @@ M.nvim = {
   },
 
   -- completion
-  ["hrsh7th/cmp-nvim-lsp"] = {},
-  ["hrsh7th/cmp-buffer"] = {},
-  ["hrsh7th/cmp-path"] = {},
-  ["hrsh7th/cmp-cmdline"] = {},
+  ["hrsh7th/cmp-nvim-lsp"] = {
+    event = "InsertEnter",
+  },
+  ["hrsh7th/cmp-buffer"] = {
+    event = "InsertEnter",
+  },
+  ["hrsh7th/cmp-path"] = {
+    event = "InsertEnter",
+  },
+  ["hrsh7th/cmp-cmdline"] = {
+    event = "InsertEnter",
+  },
   ["rafamadriz/friendly-snippets"] = {
     module = "cmp_nvim_lsp",
     event = "InsertEnter",
   },
   ["hrsh7th/nvim-cmp"] = {
+    after = { "cmp-nvim-lsp", "cmp-buffer", "cmp-path", "cmp-cmdline" },
     config = require("utils").requirePluginConfig("lsp.completion"),
   },
   ["L3MON4D3/LuaSnip"] = {
+    wants = "friendly-snippets",
     config = require("utils").requirePluginConfig("lsp.luasnip"),
   },
 
-  -- formatting
+  -- formatting and linting
   ["jose-elias-alvarez/null-ls.nvim"] = {
-      config = require("utils").requirePluginConfig("lsp.null"),
+    config = require("utils").requirePluginConfig("lsp.null"),
+  },
+  ["gpanders/editorconfig.nvim"] = {
+    event = "BufRead",
   },
 
+  ["folke/trouble.nvim"] = {
+    config = require("utils").requirePluginConfig("trouble"),
+  },
+  ["NvChad/nvim-colorizer.lua"] = {
+    event = { "BufRead", "BufNewFile" },
+    config = function () require("colorizer").setup() end,
+  },
   ["kevinhwang91/nvim-ufo"] = {
     config = require("utils").requirePluginConfig("ufo"),
   },
+  ["Darazaki/indent-o-matic"] = {
+    config = require("utils").requirePluginConfig("indent-o-matic"),
+  },
   ["lukas-reineke/indent-blankline.nvim"] = {
+    event = "BufRead",
     config = require("utils").requirePluginConfig("indent-blankline"),
   },
+  ["akinsho/bufferline.nvim"] = {
+    config = require("utils").requirePluginConfig("bufferline"),
+  },
   ["lewis6991/gitsigns.nvim"] = {
+    event = "BufEnter",
     config = function () require("gitsigns").setup() end,
   },
   ["kyazdani42/nvim-tree.lua"] = {
@@ -108,6 +140,19 @@ M.nvim = {
   },
   ["folke/which-key.nvim"] = {
     config = require("utils").requirePluginConfig("whichkey"),
+  },
+  ["akinsho/toggleterm.nvim"] = {
+    config = require("utils").requirePluginConfig("toggleterm"),
+  },
+  ["feline-nvim/feline.nvim"] = {
+    config = require("utils").requirePluginConfig("feline"),
+  },
+  ["numToStr/Comment.nvim"] = {
+    event = "BufRead",
+    config = function () require("Comment").setup() end,
+  },
+  ["luukvbaal/stabilize.nvim"] = {
+    config = function () require("stabilize").setup() end,
   },
 }
 

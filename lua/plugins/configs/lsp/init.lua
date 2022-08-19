@@ -1,13 +1,11 @@
--- make sure mason lspconfig is installed
-if not packer_plugins["mason-lspconfig.nvim"] then return end
-
 require("plugins.configs.lsp.handlers")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local masonlsp = require("mason-lspconfig")
-local lspconfig = require("lspconfig")
+local m_ok, masonlsp = pcall(require, "mason-lspconfig")
+local l_ok, lspconfig = pcall(require, "lspconfig")
+if not m_ok or not l_ok then return end
 
 local default_config = {
   capabilities = capabilities,
@@ -20,6 +18,17 @@ end
 masonlsp.setup_handlers({
   default_handler,
 
+  ["jsonls"] = function ()
+    default_handler("jsonls", {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        }
+      }
+    })
+  end,
+
   ["sumneko_lua"] = function ()
     local luadev = require("lua-dev").setup({
       library = {
@@ -30,6 +39,11 @@ masonlsp.setup_handlers({
       runtime_path = true,
     })
     default_handler("sumneko_lua", luadev)
+  end,
+
+  ["rust_analyzer"] = function ()
+    require("rust-tools").setup(vim.tbl_extend("keep", default_config, {
+    }))
   end,
 
   ["arduino_language_server"] = function ()

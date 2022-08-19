@@ -9,17 +9,13 @@ function SafeRequire(package_name, handler)
     if type(handler) == "function" then
       handler(package)
 	  end
-  elseif packer_plugins["nvim-notify"] then
-    require("notify")(tostring(package), "error", {
-      title = string.format("Failed to require '%s'", package_name)
-    })
+  else
+    local n_ok, n = pcall(require, "notify")
+    if n_ok then
+      n(package, "error", { title = string.format("Failed to load '%s'", package_name) })
+    end
   end
 end
-
-SafeRequire("toml", function (toml)
-	_G.config = toml.decode(require("utils").readAll(string.format("%s/lua/user/config.toml", vim.fn.stdpath("config"))))
-end)
-if type(_G.config) ~= "table" then _G.config = {} end
 
 SafeRequire("core.options")
 SafeRequire("core.packer")

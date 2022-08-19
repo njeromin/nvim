@@ -1,4 +1,5 @@
-local treesitter = require("nvim-treesitter.configs")
+local ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not ok then return end
 
 local opts = {
   highlight = {
@@ -7,7 +8,7 @@ local opts = {
   },
 }
 
-local treesitter_opts = _G.config.options.treesitter
+local treesitter_opts = require("user.config").treesitter or {}
 
 if treesitter_opts.textobjects then
   opts.textobjects = {

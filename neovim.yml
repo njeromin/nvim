@@ -2,9 +2,11 @@
 base: lua52
 
 globals:
-  vim:
-    any: true
   packer_plugins:
+    any: true
+  SafeRequire:
+    any: true
+  vim:
     any: true
   assert:
     args:

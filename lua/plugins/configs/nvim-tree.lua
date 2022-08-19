@@ -1,4 +1,5 @@
-local tree = require("nvim-tree")
+local ok, tree = pcall(require, "nvim-tree")
+if not ok then return end
 
 tree.setup({
   hijack_cursor = true,
@@ -6,7 +7,7 @@ tree.setup({
   view = {
     adaptive_size = true,
     preserve_window_proportions = true,
-    hide_root_folder = true,
+    hide_root_folder = false,
     width = 25,
   },
   diagnostics = {

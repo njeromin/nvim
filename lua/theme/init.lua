@@ -1,5 +1,3 @@
-_G.current_theme = _G.config.options.theme or "onedark"
-
 local base16 = require("base16-colorscheme")
 local hi = base16.highlight
 local colours = require("theme.colours")
@@ -29,9 +27,9 @@ hi.MasonMutedBlock = { guifg = colours.fg4, bg = masonbg }
 -- nvim tree
 local treebg = utils.darken(colours.bg, 10)
 hi.NvimTreeNormal = { guibg = treebg, right_padding = 1 }
-hi.NvimTreeTitle = { guibg = treebg, guifg = colours.orange }
 hi.NvimTreeWinSeparator = { guibg = treebg, guifg = treebg }
 hi.NvimTreeFolderIcon = { guifg = colours.blue }
 hi.NvimTreeFolderName = { guifg = colours.blue }
+hi.NvimTreeRootFolder = { guifg = colours.orange }
 
-base16.setup(require("colors")[_G.current_theme])
+base16.setup(require("colors")[require("user.config").theme or "onedark"])

@@ -1,4 +1,4 @@
-local base16 = require("colors")[_G.current_theme]
+local base16 = require("colors")[require("user.config").theme or "onedark"]
 
 return {
   bg  = base16.base00,
