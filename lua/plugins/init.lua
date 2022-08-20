@@ -50,10 +50,6 @@ M.nvim = {
     config = function () require("spellsitter").setup() end,
   },
 
-  ["SmiteshP/nvim-navic"] = {
-    config = require("utils").requirePluginConfig("navic"),
-  },
-
   -- lsp
   ["b0o/SchemaStore.nvim"] = {},
   ["stevearc/vim-arduino"] = {},

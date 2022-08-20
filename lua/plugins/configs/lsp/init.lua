@@ -8,8 +8,7 @@ local l_ok, lspconfig = pcall(require, "lspconfig")
 if not m_ok or not l_ok then return end
 
 local default_attach = function (client, bufnr)
-  local ok, navic = pcall(require, "nvim-navic")
-  if ok then navic.attach(client, bufnr) end
+  
 end
 
 local default_config = {
