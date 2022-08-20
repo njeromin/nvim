@@ -29,30 +29,6 @@ table.insert(components.active[1], {
     fg = lighten(colours.fg, 8),
   },
   left_sep = { " ", "slant_left", "block" },
-  right_sep = "block",
-})
-table.insert(components.active[1], {
-  provider = "git_diff_added",
-  hl = {
-    bg = lighten(colours.bg, 8),
-    fg = colours.green,
-  },
-  right_sep = "block",
-})
-table.insert(components.active[1], {
-  provider = "git_diff_changed",
-  hl = {
-    bg = lighten(colours.bg, 8),
-    fg = colours.yellow,
-  },
-  right_sep = "block",
-})
-table.insert(components.active[1], {
-  provider = "git_diff_removed",
-  hl = {
-    bg = lighten(colours.bg, 8),
-    fg = colours.red,
-  },
   right_sep = { "block", "slant_right" },
 })
 
