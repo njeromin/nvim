@@ -16,14 +16,15 @@ table.insert(components.active[1], vi_mode.component)
 
 table.insert(components.active[1], {
   provider = "file_info",
-  enabled = function ()
-    return vim.bo.buftype ~= "nofile"
-  end,
+  enabled = function () return vim.bo.buftype ~= "nofile" end,
   left_sep = " ",
 })
 
+
+local git_utils = require("feline.providers.git")
 table.insert(components.active[1], {
   provider = "git_branch",
+  enabled = function () return git_utils.git_info_exists() end,
   hl = {
     bg = lighten(colours.bg, 8),
     fg = lighten(colours.fg, 8),

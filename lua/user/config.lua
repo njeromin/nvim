@@ -7,7 +7,7 @@ return {
   treesitter = {
     enable = true,
     textobjects = true,
-    rainbow_pairs = true,
+    rainbow_pairs = false,
     spellsitter = true,
   }
 }
