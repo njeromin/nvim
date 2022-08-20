@@ -51,7 +51,7 @@ local component = {
       style = "bold",
     }
   end,
-  right_sep = " ",
+  right_sep ="slant_right_2",
 }
 
 return {
