@@ -5,13 +5,6 @@ if not colours_ok then return end
 local lighten = require("utils.colours").lighten
 local darken = require("utils.colours").darken
 
-local buf_not_empty = function ()
-  if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
-  return true
-  end
-  return false
-end
-
 local components = {
   active = { {}, {}, {} },
   inactive = { {}, {} },
@@ -21,9 +14,82 @@ local components = {
 local vi_mode = require("plugins.configs.feline.vi_mode")
 table.insert(components.active[1], vi_mode.component)
 
+table.insert(components.active[1], {
+  provider = "file_info",
+  enabled = function ()
+    return vim.bo.buftype ~= "nofile"
+  end,
+  left_sep = " ",
+})
+
+table.insert(components.active[1], {
+  provider = "git_branch",
+  hl = {
+    bg = lighten(colours.bg, 8),
+    fg = lighten(colours.fg, 8),
+  },
+  left_sep = { " ", "slant_left", "block" },
+  right_sep = "block",
+})
+table.insert(components.active[1], {
+  provider = "git_diff_added",
+  hl = {
+    bg = lighten(colours.bg, 8),
+    fg = colours.green,
+  },
+  right_sep = "block",
+})
+table.insert(components.active[1], {
+  provider = "git_diff_changed",
+  hl = {
+    bg = lighten(colours.bg, 8),
+    fg = colours.yellow,
+  },
+  right_sep = "block",
+})
+table.insert(components.active[1], {
+  provider = "git_diff_removed",
+  hl = {
+    bg = lighten(colours.bg, 8),
+    fg = colours.red,
+  },
+  right_sep = { "block", "slant_right" },
+})
+
 -- middle section
+local lsp_utils = require("feline.providers.lsp")
 table.insert(components.active[2], {
   provider = "lsp_client_names",
+  right_sep = " ",
+})
+
+table.insert(components.active[2], {
+  provider = "diagnostic_errors",
+  enabled = function () return lsp_utils.diagnostics_exist("error") end,
+  hl = {
+    fg = colours.red,
+  },
+})
+table.insert(components.active[2], {
+  provider = "diagnostic_warnings",
+  enabled = function () return lsp_utils.diagnostics_exist("warn") end,
+  hl = {
+    fg = colours.yellow,
+  },
+})
+table.insert(components.active[2], {
+  provider = "diagnostic_hints",
+  enabled = function () return lsp_utils.diagnostics_exist("hint") end,
+  hl = {
+    fg = colours.cyan,
+  },
+})
+table.insert(components.active[2], {
+  provider = "diagnostic_info",
+  enabled = function () return lsp_utils.diagnostics_exist("info") end,
+  hl = {
+    fg = colours.blue,
+  },
 })
 
 -- right section
