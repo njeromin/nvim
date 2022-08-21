@@ -9,11 +9,12 @@ end
 
 all_register({
   ["<A-f>"] = { "<cmd>ToggleTerm direction=float<cr>", "  Toggle Floating Terminal" },
+  ["<C-s>"] = { "<cmd>w<cr>", "Save" },
+  ["<C-x>"] = { "<cmd>qa<cr>", "Exit" },
 })
 
 wk.register({
   ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Cycle Bufferline" },
-  ["q"] = { "<cmd>qa<cr>", "Exit" },
 })
 
 wk.register({

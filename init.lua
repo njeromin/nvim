@@ -8,7 +8,7 @@ function SafeRequire(package_name, handler)
   if ok then
     if type(handler) == "function" then
       handler(package)
-	  end
+    end
   else
     local n_ok, n = pcall(require, "notify")
     if n_ok then

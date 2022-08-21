@@ -162,7 +162,6 @@ M.nvim = {
     config = function () require("stabilize").setup() end,
   },
   ["windwp/nvim-autopairs"] = {
-    after = "nvim-cmp",
     config = requirePluginConfig("autopairs"),
   },
 }
