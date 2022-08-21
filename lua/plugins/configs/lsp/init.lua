@@ -7,9 +7,13 @@ local m_ok, masonlsp = pcall(require, "mason-lspconfig")
 local l_ok, lspconfig = pcall(require, "lspconfig")
 if not m_ok or not l_ok then return end
 
-local default_attach = function (client, bufnr)
-  
-end
+-- diagnostic icons
+vim.fn.sign_define("DiagnosticSignError", {text = " ", texthl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
+
+local default_attach = function (client, bufnr) end
 
 local default_config = {
   capabilities = capabilities,
