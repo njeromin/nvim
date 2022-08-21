@@ -1,6 +1,8 @@
 local opts = require("user.config") or {}
 local ts_opts = opts.treesitter or {}
 
+local requirePluginConfig = require("utils").requirePluginConfig
+
 local M = {}
 
 M.rocks = {}
@@ -15,7 +17,7 @@ M.nvim = {
     config = function () vim.g.cursorhold_updatetime = 100 end,
   },
   ["stevearc/dressing.nvim"] = {
-    config = require("utils").requirePluginConfig("dressing"),
+    config = requirePluginConfig("dressing"),
   },
 
   ["RRethy/nvim-base16"] = {
@@ -27,16 +29,16 @@ M.nvim = {
   },
 
   ["williamboman/mason.nvim"] = {
-    config = require("utils").requirePluginConfig("mason", function (cfg) cfg.mason() end),
+    config = requirePluginConfig("mason", function (cfg) cfg.mason() end),
   },
   ["williamboman/mason-lspconfig.nvim"] = {
-    config = require("utils").requirePluginConfig("mason", function (cfg) cfg.mason_lspconfig() end),
+    config = requirePluginConfig("mason", function (cfg) cfg.mason_lspconfig() end),
   },
 
   -- treesitter
   ["nvim-treesitter/nvim-treesitter"] = {
     disable = not ts_opts.enable,
-    config = require("utils").requirePluginConfig("treesitter"),
+    config = requirePluginConfig("treesitter"),
     run = function () require('nvim-treesitter.install').update({ with_sync = true }) end,
   },
   ["nvim-treesitter/nvim-treesitter-textobjects"] = {
@@ -67,10 +69,10 @@ M.nvim = {
       "lua-dev.nvim",
       "lspkind.nvim",
     },
-    config = require("utils").requirePluginConfig("lsp")
+    config = requirePluginConfig("lsp")
   },
   ["j-hui/fidget.nvim"] = {
-    config = require("utils").requirePluginConfig("fidget"),
+    config = requirePluginConfig("fidget"),
   },
 
   -- completion
@@ -92,63 +94,63 @@ M.nvim = {
   },
   ["hrsh7th/nvim-cmp"] = {
     after = { "cmp-nvim-lsp", "cmp-buffer", "cmp-path", "cmp-cmdline" },
-    config = require("utils").requirePluginConfig("lsp.completion"),
+    config = requirePluginConfig("lsp.completion"),
   },
   ["L3MON4D3/LuaSnip"] = {
     wants = "friendly-snippets",
-    config = require("utils").requirePluginConfig("lsp.luasnip"),
+    config = requirePluginConfig("lsp.luasnip"),
   },
 
   -- formatting and linting
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    config = require("utils").requirePluginConfig("lsp.null"),
+    config = requirePluginConfig("lsp.null"),
   },
   ["gpanders/editorconfig.nvim"] = {
     event = "BufRead",
   },
 
   ["folke/trouble.nvim"] = {
-    config = require("utils").requirePluginConfig("trouble"),
+    config = requirePluginConfig("trouble"),
   },
   ["NvChad/nvim-colorizer.lua"] = {
     event = { "BufRead", "BufNewFile" },
     config = function () require("colorizer").setup() end,
   },
   ["kevinhwang91/nvim-ufo"] = {
-    config = require("utils").requirePluginConfig("ufo"),
+    config = requirePluginConfig("ufo"),
   },
   ["Darazaki/indent-o-matic"] = {
-    config = require("utils").requirePluginConfig("indent-o-matic"),
+    config = requirePluginConfig("indent-o-matic"),
   },
   ["lukas-reineke/indent-blankline.nvim"] = {
     event = "BufRead",
-    config = require("utils").requirePluginConfig("indent-blankline"),
+    config = requirePluginConfig("indent-blankline"),
   },
   ["akinsho/bufferline.nvim"] = {
-    config = require("utils").requirePluginConfig("bufferline"),
+    config = requirePluginConfig("bufferline"),
   },
   ["lewis6991/gitsigns.nvim"] = {
     event = "BufEnter",
     config = function () require("gitsigns").setup() end,
   },
   ["kyazdani42/nvim-tree.lua"] = {
-    config = require("utils").requirePluginConfig("nvim-tree"),
+    config = requirePluginConfig("nvim-tree"),
   },
   ["nvim-telescope/telescope.nvim"] = {
-    config = require("utils").requirePluginConfig("telescope"),
+    config = requirePluginConfig("telescope"),
   },
   ["Pocco81/auto-save.nvim"] = {
     disable = not opts.autosave,
-    config = require("utils").requirePluginConfig("autosave"),
+    config = requirePluginConfig("autosave"),
   },
   ["folke/which-key.nvim"] = {
-    config = require("utils").requirePluginConfig("whichkey"),
+    config = requirePluginConfig("whichkey"),
   },
   ["akinsho/toggleterm.nvim"] = {
-    config = require("utils").requirePluginConfig("toggleterm"),
+    config = requirePluginConfig("toggleterm"),
   },
   ["feline-nvim/feline.nvim"] = {
-    config = require("utils").requirePluginConfig("feline"),
+    config = requirePluginConfig("feline"),
   },
   ["numToStr/Comment.nvim"] = {
     event = "BufRead",

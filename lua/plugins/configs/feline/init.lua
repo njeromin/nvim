@@ -20,11 +20,11 @@ table.insert(components.active[1], {
   left_sep = " ",
 })
 
-
 local git_utils = require("feline.providers.git")
 table.insert(components.active[1], {
   provider = "git_branch",
   enabled = function () return git_utils.git_info_exists() end,
+  truncate_hide = true,
   hl = {
     bg = lighten(colours.bg, 8),
     fg = lighten(colours.fg, 8),
@@ -33,43 +33,43 @@ table.insert(components.active[1], {
   right_sep = { "block", "slant_right" },
 })
 
--- middle section
+-- right section
 local lsp_utils = require("feline.providers.lsp")
-table.insert(components.active[2], {
-  provider = "lsp_client_names",
-  right_sep = " ",
-})
-
-table.insert(components.active[2], {
+table.insert(components.active[3], {
   provider = "diagnostic_errors",
   enabled = function () return lsp_utils.diagnostics_exist("error") end,
   hl = {
     fg = colours.red,
   },
 })
-table.insert(components.active[2], {
+table.insert(components.active[3], {
   provider = "diagnostic_warnings",
   enabled = function () return lsp_utils.diagnostics_exist("warn") end,
   hl = {
     fg = colours.yellow,
   },
 })
-table.insert(components.active[2], {
+table.insert(components.active[3], {
   provider = "diagnostic_hints",
   enabled = function () return lsp_utils.diagnostics_exist("hint") end,
   hl = {
     fg = colours.cyan,
   },
 })
-table.insert(components.active[2], {
+
+table.insert(components.active[3], {
   provider = "diagnostic_info",
   enabled = function () return lsp_utils.diagnostics_exist("info") end,
   hl = {
     fg = colours.blue,
   },
 })
+table.insert(components.active[3], {
+  provider = "lsp_client_names",
+  left_sep = " ",
+  right_sep = " ",
+})
 
--- right section
 table.insert(components.active[3], {
   provider = "position",
   hl = {
