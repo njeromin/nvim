@@ -14,6 +14,7 @@ M.nvim = {
   ["romgrk/fzy-lua-native"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
   ["antoinemadec/FixCursorHold.nvim"] = {
+    event = { "BufRead", "BufNewFile" },
     config = function () vim.g.cursorhold_updatetime = 100 end,
   },
   ["stevearc/dressing.nvim"] = {
@@ -120,6 +121,7 @@ M.nvim = {
     config = requirePluginConfig("ufo"),
   },
   ["Darazaki/indent-o-matic"] = {
+    event = "BufReadPost",
     config = requirePluginConfig("indent-o-matic"),
   },
   ["lukas-reineke/indent-blankline.nvim"] = {
@@ -158,6 +160,10 @@ M.nvim = {
   },
   ["luukvbaal/stabilize.nvim"] = {
     config = function () require("stabilize").setup() end,
+  },
+  ["windwp/nvim-autopairs"] = {
+    after = "nvim-cmp",
+    config = requirePluginConfig("autopairs"),
   },
 }
 
