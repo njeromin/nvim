@@ -8,6 +8,7 @@ return {
     enable = true,
     textobjects = true,
     rainbow_pairs = false,
+    html_autotag = true,
     spellsitter = true,
   }
 }

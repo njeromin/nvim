@@ -49,6 +49,10 @@ M.nvim = {
   ["p00f/nvim-ts-rainbow"] = {
     disable = not ts_opts.rainbow_pairs,
   },
+  ["windwp/nvim-ts-autotag"] = {
+    disable = not ts_opts.html_autotag,
+    config = function () require("nvim-ts-autotag").setup() end,
+  },
   ["lewis6991/spellsitter.nvim"] = {
     disable = not ts_opts.spellsitter,
     config = function () require("spellsitter").setup() end,
