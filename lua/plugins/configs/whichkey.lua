@@ -35,5 +35,5 @@ wk.register({
 
   m = { "<cmd>Mason<cr>", "  Open Mason" },
   t = { "<cmd>TroubleToggle<cr>", "飯 Toggle Traffic "},
-  e = { function () require("nvim-tree").focus() end, "פּ  Focus Tree" },
+  e = { "<cmd>Neotree reveal<cr>",  "פּ  Focus Tree"  },
 }, { prefix = "<leader>" })

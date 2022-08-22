@@ -3,14 +3,18 @@ local hi = base16.highlight
 local colours = require("theme.colours")
 local utils = require("utils.colours")
 
+base16.setup(require("colors")[require("user.config").theme or "onedark"])
+
 -- nvim
-local splitbg = utils.darken(colours.bg, 8)
-hi.VertSplit = { guibg = splitbg, guifg = splitbg }
-hi.WinSeparator = { guifg = colours.bg4 }
+local splitbg = utils.darken(colours.bg, 10)
+hi.VertSplit = { guifg = splitbg, guibg = splitbg }
+hi.WinSeparator = { guifg = splitbg, guibg = splitbg }
 
 -- float
 local floatbg = utils.darken(colours.bg, 5)
 hi.Float = { guibg = floatbg }
+hi.FloatBorder = { guifg = floatbg, guibg = floatbg }
+hi.FloatTitle = { guifg = colours.fg2, guibg = floatbg }
 hi.NormalFloat = { guibg = floatbg }
 hi.WhichKeyFloat = { guibg = floatbg }
 
@@ -24,12 +28,19 @@ hi.MasonHeaderSecondary = { guifg = masonbg, guibg = colours.magenta }
 hi.MasonMuted = { guifg = colours.fg4 }
 hi.MasonMutedBlock = { guifg = colours.fg4, bg = masonbg }
 
--- nvim tree
+-- neo tree
 local treebg = utils.darken(colours.bg, 10)
+hi.NeoTreeNormal = { guibg = treebg }
+hi.NeoTreeNormalNC = { guibg = treebg }
+hi.NeoTreeRootName = { guifg = colours.orange }
+hi.NeoTreeWinSeparator = { guifg = treebg, guibg = treebg }
+hi.NeoTreeFloatBorder = { guifg = floatbg, guibg = floatbg }
+hi.NeoTreeFloatTitle = { guifg = colours.fg2, guibg = floatbg }
+
+-- nvim tree
+--[[ local treebg = utils.darken(colours.bg, 10)
 hi.NvimTreeNormal = { guibg = treebg, right_padding = 1 }
 hi.NvimTreeWinSeparator = { guibg = treebg, guifg = treebg }
 hi.NvimTreeFolderIcon = { guifg = colours.blue }
 hi.NvimTreeFolderName = { guifg = colours.blue }
-hi.NvimTreeRootFolder = { guifg = colours.orange }
-
-base16.setup(require("colors")[require("user.config").theme or "onedark"])
+hi.NvimTreeRootFolder = { guifg = colours.orange } ]]

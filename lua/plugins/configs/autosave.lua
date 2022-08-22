@@ -18,6 +18,8 @@ autosave.setup({
         "Mason",
         "NvimTree",
         "mason.nvim",
+        "nofile",
+        "neo-tree",
       })
     then
       return true

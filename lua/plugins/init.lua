@@ -13,6 +13,7 @@ M.nvim = {
   ["kevinhwang91/promise-async"] = {},
   ["romgrk/fzy-lua-native"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
+  ["MunifTanjim/nui.nvim"] = {},
   ["antoinemadec/FixCursorHold.nvim"] = {
     event = { "BufRead", "BufNewFile" },
     config = function () vim.g.cursorhold_updatetime = 100 end,
@@ -126,7 +127,11 @@ M.nvim = {
     config = function () require("gitsigns").setup() end,
   },
   ["kyazdani42/nvim-tree.lua"] = {
+    disable = true,
     config = requirePluginConfig("nvim-tree"),
+  },
+  ["nvim-neo-tree/neo-tree.nvim"] = {
+    config = requirePluginConfig("neo-tree"),
   },
   ["nvim-telescope/telescope.nvim"] = {
     config = requirePluginConfig("telescope"),
