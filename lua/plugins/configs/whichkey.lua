@@ -34,6 +34,6 @@ wk.register({
   },
 
   m = { "<cmd>Mason<cr>", "  Open Mason" },
-  t = { "<cmd>TroubleToggle<cr>", "飯 Toggle Traffic "},
+  t = { "<cmd>TroubleToggle<cr>", " Toggle Trouble"},
   e = { "<cmd>Neotree reveal<cr>",  "פּ  Focus Tree"  },
 }, { prefix = "<leader>" })
