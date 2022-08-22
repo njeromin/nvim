@@ -36,6 +36,11 @@ hi.NeoTreeRootName = { guifg = colours.orange }
 hi.NeoTreeWinSeparator = { guifg = treebg, guibg = treebg }
 hi.NeoTreeFloatBorder = { guifg = floatbg, guibg = floatbg }
 hi.NeoTreeFloatTitle = { guifg = colours.fg2, guibg = floatbg }
+hi.NeoTreeTabActive = { guibg = treebg }
+hi.neoTreeTabSeparatorActive = { guifg = treebg, guibg = treebg }
+local tree_tab_inactive = utils.darken(treebg, 10)
+hi.NeoTreeTabInactive = { guibg = tree_tab_inactive }
+hi.NeoTreeTabSeparatorInactive = { guifg = tree_tab_inactive, guibg = tree_tab_inactive }
 
 -- nvim tree
 --[[ local treebg = utils.darken(colours.bg, 10)

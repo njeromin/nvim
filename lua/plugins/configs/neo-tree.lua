@@ -14,7 +14,7 @@ tree.setup({
     },
   },
   window = {
-    width = 30,
+    width = "20%",
   },
   filesystem = {
     filtered_items = {
