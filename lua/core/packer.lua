@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   group = "packer_user_config",
   pattern = string.format("%s/lua/plugins/*", vim.fn.stdpath("config")),
   callback = function ()
-    pcall(require, string.format("%s/lua/core/packer.lua", vim.fn.stdpath("config")))
+    pcall(require, "core.packer")
     SafeRequire("packer", function (packer) packer.compile() end)
   end
 })

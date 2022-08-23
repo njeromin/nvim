@@ -7,6 +7,9 @@ autosave.setup({
 
     if
       vim.fn.getbufvar(buf, "&modifiable") == 1 and
+      utils.not_in(vim.fn.getbufvar(buf, "&buftype"), {
+        "nofile",
+      }) and
       utils.not_in(vim.fn.getbufvar(buf, "&filetype"), {
         "help",
         "terminal",
