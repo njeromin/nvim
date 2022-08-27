@@ -69,5 +69,7 @@ cmp.setup({
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
+    { name = "cmdline" },
+    { name = "npm", keyword_length = 4 },
   },
 })

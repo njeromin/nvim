@@ -12,15 +12,15 @@ hi.WinSeparator = { guifg = splitbg, guibg = splitbg }
 
 -- float
 local floatbg = utils.darken(colours.bg, 5)
-hi.Float = { guibg = floatbg }
+hi.Float = { colours.fg, guibg = floatbg }
 hi.FloatBorder = { guifg = floatbg, guibg = floatbg }
-hi.FloatTitle = { guifg = colours.fg2, guibg = floatbg }
+hi.FloatTitle = { guifg = "#111111", guibg = colours.orange }
 hi.NormalFloat = { guibg = floatbg }
 hi.WhichKeyFloat = { guibg = floatbg }
 
 -- mason
 local masonbg = floatbg
-hi.MasonHeader = { guibg = colours.orange, guifg = "#111111" }
+hi.MasonHeader = { guifg = "#111111", guibg = colours.orange }
 hi.MasonHighlight = { guifg = colours.blue }
 hi.MasonHighlightBlock = { guifg = masonbg, guibg = colours.green }
 hi.MasonHighlightBlockBold = { guifg = masonbg, guibg = colours.green }
