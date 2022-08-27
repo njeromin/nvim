@@ -9,6 +9,7 @@ end
 
 all_register({
   ["<A-f>"] = { "<cmd>ToggleTerm direction=float<cr>", "  Toggle Floating Terminal" },
+  ["<A-j>"] = { function () vim.lsp.buf.code_action() end, "Show code actions" },
   ["<C-s>"] = { "<cmd>w<cr>", "Save" },
   ["<C-x>"] = { "<cmd>qa<cr>", "Exit" },
 })

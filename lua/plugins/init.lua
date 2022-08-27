@@ -80,6 +80,9 @@ M.nvim = {
   ["j-hui/fidget.nvim"] = {
     config = requirePluginConfig("fidget"),
   },
+  ["kosayoda/nvim-lightbulb"] = {
+    config = requirePluginConfig("lightbulb"),
+  },
 
   -- completion
   ["hrsh7th/cmp-nvim-lsp"] = {},
