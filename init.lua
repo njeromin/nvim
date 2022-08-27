@@ -12,6 +12,7 @@ function SafeRequire(package_name, handler)
   else
     local n_ok, n = pcall(require, "notify")
     if n_ok then
+      ---@diagnostic disable-next-line: redundant-parameter
       n(package, "error", { title = string.format("Failed to load '%s'", package_name) })
     end
   end
