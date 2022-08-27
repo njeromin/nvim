@@ -130,10 +130,6 @@ M.nvim = {
     event = "BufEnter",
     config = function () require("gitsigns").setup() end,
   },
-  ["kyazdani42/nvim-tree.lua"] = {
-    disable = true,
-    config = requirePluginConfig("nvim-tree"),
-  },
   ["nvim-neo-tree/neo-tree.nvim"] = {
     config = requirePluginConfig("neo-tree"),
   },
