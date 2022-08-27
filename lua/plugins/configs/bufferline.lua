@@ -6,14 +6,14 @@ bufline.setup({
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = true,
     offsets = {
-      --[[ {
+      {
         filetype = "neo-tree",
         text = function ()
           return ""
         end,
         highlight = "NeoTreeNormal",
         text_align = "left",
-      } ]]
+      }
     },
     always_show_bufferline = false,
   },

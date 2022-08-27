@@ -7,7 +7,7 @@ tree.setup({
   enable_git_status = false,
   popup_border_style = "solid",
   source_selector = {
-    winbar = true,
+    --winbar = true,
   },
   default_component_configs = {
     indent = {
