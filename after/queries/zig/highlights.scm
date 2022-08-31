@@ -1,0 +1,5 @@
+[
+  "async"
+  "defer"
+  "try"
+] @keyword
