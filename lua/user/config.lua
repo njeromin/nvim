@@ -1,5 +1,5 @@
 return {
-  theme = "onedark",
+  theme = "gruvbox-material-dark-medium",
   indent_width = 2,
   mapleader = " ",
   autosave = true,

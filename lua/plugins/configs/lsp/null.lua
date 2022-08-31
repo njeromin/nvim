@@ -12,5 +12,6 @@ null.setup({
 
     b.formatting.gofmt,
     b.formatting.goimports,
+    b.formatting.golines,
   }
 })

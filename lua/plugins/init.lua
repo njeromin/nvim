@@ -63,6 +63,10 @@ M.nvim = {
   ["stevearc/vim-arduino"] = {},
   ["folke/lua-dev.nvim"] = {},
   ["simrat39/rust-tools.nvim"] = {},
+  ["Saecki/crates.nvim"] = {
+    event = { "BufRead Cargo.toml"},
+    config = requirePluginConfig("crates"),
+  },
   ["ray-x/go.nvim"] = {},
   ["onsails/lspkind.nvim"] = {},
   ["neovim/nvim-lspconfig"] = {
