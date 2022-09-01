@@ -20,6 +20,15 @@ table.insert(components.active[1], {
   left_sep = " ",
 })
 
+table.insert(components.active[1], {
+  provider = "file_size",
+  enabled = function () return vim.bo.buftype ~= "nofile" end,
+  hl = {
+    fg = colours.orange,
+  },
+  left_sep = " ",
+})
+
 local git_utils = require("feline.providers.git")
 table.insert(components.active[1], {
   provider = "git_branch",
