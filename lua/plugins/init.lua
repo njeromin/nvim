@@ -123,6 +123,9 @@ M.nvim = {
   ["kevinhwang91/nvim-ufo"] = {
     config = requirePluginConfig("ufo"),
   },
+  ["feline-nvim/feline.nvim"] = {
+    config = requirePluginConfig("feline"),
+  },
   ["Darazaki/indent-o-matic"] = {
     event = "BufReadPost",
     config = requirePluginConfig("indent-o-matic"),
@@ -153,9 +156,6 @@ M.nvim = {
   },
   ["akinsho/toggleterm.nvim"] = {
     config = requirePluginConfig("toggleterm"),
-  },
-  ["feline-nvim/feline.nvim"] = {
-    config = requirePluginConfig("feline"),
   },
   ["numToStr/Comment.nvim"] = {
     event = "BufRead",
