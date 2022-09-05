@@ -99,6 +99,9 @@ M.nvim = {
   ["hrsh7th/cmp-path"] = {},
   ["hrsh7th/cmp-cmdline"] = {},
   ["David-Kunz/cmp-npm"] = {},
+  ["tzachar/cmp-tabnine"] = {
+    run = "./install.sh",
+  },
   ["rafamadriz/friendly-snippets"] = {
     module = "cmp_nvim_lsp",
   },
@@ -123,7 +126,7 @@ M.nvim = {
   },
   ["NvChad/nvim-colorizer.lua"] = {
     event = { "BufRead", "BufNewFile" },
-    config = function () require("colorizer").setup() end,
+    config = function () require ("colorizer").setup() end,
   },
   ["kevinhwang91/nvim-ufo"] = {
     config = requirePluginConfig("ufo"),

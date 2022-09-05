@@ -1,4 +1,6 @@
 return {
+	spell = true,
+	spelllang = "en_au",
 	laststatus = 3,
 	showmode = false,
 	title = true,

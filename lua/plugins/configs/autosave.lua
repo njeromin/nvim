@@ -18,10 +18,7 @@ autosave.setup({
         "lspinfo",
         "TelescopePrompt",
         "TelescopeResults",
-        "Mason",
-        "NvimTree",
-        "mason.nvim",
-        "nofile",
+        "mason",
         "neo-tree",
       })
     then
