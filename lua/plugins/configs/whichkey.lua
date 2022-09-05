@@ -12,9 +12,9 @@ all_register({
   ["<A-j>"] = { function () vim.lsp.buf.code_action() end, "Show code actions" },
 })
 
-wk.register({
+ wk.register({
   ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Cycle Bufferline" },
-})
+}, { mode = "n" })
 
 wk.register({
   f = {

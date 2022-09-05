@@ -10,5 +10,6 @@ return {
     rainbow_pairs = false,
     html_autotag = true,
     spellsitter = true,
+    highlight_arguments = true,
   }
 }
