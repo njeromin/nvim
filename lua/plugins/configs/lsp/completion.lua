@@ -4,14 +4,17 @@ local cmp_window = require("cmp.utils.window")
 cmp_window.info_ = cmp_window.info
 cmp_window.info = function (self)
   local info = self:info_()
-  info.scrollable = true
+  info.scrollable = false
   return info
 end
 
 cmp.setup({
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = {
+      winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:CmpCursor,Search:None",
+      col_offset = -3,
+      side_padding = 0,
+    },
   },
   snippet = {
     expand = function (args)
@@ -19,13 +22,15 @@ cmp.setup({
     end,
   },
   formatting = {
-    format = require("lspkind").cmp_format({
-      mode = "symbol",
-      maxwidth = 50,
-      before = function (_, vim_item)
-        return vim_item
-      end
-    }),
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. strings[1] .. " "
+      kind.menu = "    (" .. strings[2] .. ")"
+
+      return kind
+    end,
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),

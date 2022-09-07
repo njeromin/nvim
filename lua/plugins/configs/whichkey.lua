@@ -32,7 +32,6 @@ wk.register({
     i = { function() require("packer").status() end, "Status" },
   },
 
-  s = { function () require("user.settings").toggle() end, "  Open Settings" },
   m = { "<cmd>Mason<cr>", "  Open Mason" },
   t = { "<cmd>TroubleToggle<cr>", " Toggle Trouble"},
   e = { "<cmd>Neotree reveal<cr>",  "פּ  Focus Tree"  },

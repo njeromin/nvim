@@ -29,7 +29,7 @@ table.insert(components.active[1], {
   left_sep = " ",
 })
 
-local git_utils = require("feline.providers.git")
+--[[ local git_utils = require("feline.providers.git")
 table.insert(components.active[1], {
   provider = "git_branch",
   enabled = function () return git_utils.git_info_exists() end,
@@ -40,7 +40,7 @@ table.insert(components.active[1], {
   },
   left_sep = { " ", "slant_left", "block" },
   right_sep = { "block", "slant_right" },
-})
+}) ]]
 
 -- right section
 local lsp_utils = require("feline.providers.lsp")
