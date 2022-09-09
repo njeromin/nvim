@@ -76,6 +76,6 @@ cmp.setup({
     { name = "path" },
     { name = "cmdline" },
     { name = "npm", keyword_length = 4 },
-    { name = "cmp_tabline" }
+    { name = "cmp_tabnine" }
   },
 })

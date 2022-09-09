@@ -1,5 +1,3 @@
-require("plugins.configs.lsp.handlers")
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
@@ -27,3 +25,4 @@ local function default_handler(server_name)
 end
 
 masonlsp.setup_handlers({ default_handler })
+require("plugins.configs.lsp.handlers")
