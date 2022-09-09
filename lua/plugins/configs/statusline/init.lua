@@ -11,7 +11,7 @@ local components = {
 }
 
 -- left section
-local vi_mode = require("plugins.configs.feline.vi_mode")
+local vi_mode = require("plugins.configs.statusline.vi_mode")
 table.insert(components.active[1], vi_mode.component)
 
 table.insert(components.active[1], {
