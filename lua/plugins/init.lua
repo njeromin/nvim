@@ -15,7 +15,6 @@ M.nvim = {
   ["kyazdani42/nvim-web-devicons"] = {},
   ["MunifTanjim/nui.nvim"] = {},
   ["antoinemadec/FixCursorHold.nvim"] = {
-    event = { "BufRead", "BufNewFile" },
     config = function () vim.g.cursorhold_updatetime = 100 end,
   },
   ["stevearc/dressing.nvim"] = {
