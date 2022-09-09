@@ -132,7 +132,7 @@ M.nvim = {
     config = requirePluginConfig("ufo"),
   },
   ["feline-nvim/feline.nvim"] = {
-    config = requirePluginConfig("feline"),
+    config = requirePluginConfig("statusline"),
   },
   ["Darazaki/indent-o-matic"] = {
     event = "BufReadPost",

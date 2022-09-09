@@ -13,77 +13,17 @@ vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSig
 vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
 
-local default_attach = function (client, bufnr)
-end
-
 local default_config = {
   capabilities = capabilities,
-  on_attach = default_attach,
 }
 
-local function default_handler(server_name, custom_opts)
-  lspconfig[server_name].setup(vim.tbl_extend("keep", default_config, custom_opts or {}))
+local function default_handler(server_name)
+  local ok, custom_setup = pcall(require, string.format("plugins.configs.lsp.settings.%s", server_name))
+  if ok then
+    custom_setup(lspconfig, default_config)
+  else
+    lspconfig[server_name].setup(default_config)
+  end
 end
 
-masonlsp.setup_handlers({
-  default_handler,
-
-  ["sumneko_lua"] = function ()
-    local luadev = require("lua-dev").setup({
-      library = {
-        vimruntime = true,
-        types = true,
-        plugins = true,
-      },
-      runtime_path = true,
-      lspconfig = vim.tbl_extend("keep", default_config, {
-        settings = {
-          Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-          },
-        },
-      }),
-    })
-    default_handler("sumneko_lua", luadev)
-  end,
-
-  ["rust_analyzer"] = function ()
-    local ok, rt = pcall(require, "rust-tools")
-    if ok then
-      rt.setup(default_config)
-    else
-      default_handler("rust_analyzer")
-    end
-  end,
-
-  ["gopls"] = function ()
-    local ok, go = pcall(require, "go")
-    if ok then go.setup() end
-    default_handler("gopls")
-  end,
-
-  ["jsonls"] = function ()
-    default_handler("jsonls", {
-      settings = {
-        json = {
-          schemas = require("schemastore").json.schemas(),
-          validate = { enable = true },
-        }
-      }
-    })
-  end,
-
-  ["arduino_language_server"] = function ()
-    default_handler("arduino_language_server", {
-      cmd = {
-        "arduino-language-server",
-        "-cli-config", "",
-        "-fqbn", "arduino:avr:uno",
-        "-cli", "arduino-cli",
-        "-clangd", "clangd",
-      },
-    })
-  end
-})
+masonlsp.setup_handlers({ default_handler })
