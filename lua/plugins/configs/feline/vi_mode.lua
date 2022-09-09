@@ -16,7 +16,7 @@ local vi_mode_colours = {
     COMMAND = require("utils.colours").lighten(colours.magenta, 5),
     SHELL = colours.green,
     TERM = colours.blue,
-    NONE = colours.yellow
+    NONE = colours.yellow,
 }
 
 local vi_mode_text = {
@@ -36,12 +36,12 @@ local vi_mode_text = {
   ce = "UNKNOWN",
   r = "REPLACE",
   rm = "UNKNOWN",
-  t = "INSERT"
+  t = "INSERT",
 }
 
 local component = {
   provider = function ()
-    return " "..vi_mode_text[vim.fn.mode()].." "
+    return " "..vi_mode_text[vim.fn.mode() or "n"].." "
   end,
   hl = function ()
     return {
