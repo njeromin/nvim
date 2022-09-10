@@ -14,4 +14,8 @@ return {
   TelescopePreviewBorder = { fg = preview_bg, bg = preview_bg },
   TelescopePreviewTitle = { fg = "#111111", bg = colours.red },
   TelescopePreviewNormal = { bg = preview_bg },
+
+  TelescopePromptBorder = { fg = normal_bg, bg = normal_bg },
+  TelescopePromptTitle = { fg = "#111111", bg = colours.blue },
+  TelescopePromptNormal = { bg = normal_bg },
 }
