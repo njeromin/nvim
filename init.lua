@@ -21,6 +21,7 @@ end
 SafeRequire("core.options")
 SafeRequire("core.packer")
 
+-- load custom per-directory config
 local custom_nvim_path = string.format("%s/.nvim", vim.fn.getcwd())
 local ok, _ = pcall(dofile, string.format("%s/init.lua", custom_nvim_path))
 if ok then

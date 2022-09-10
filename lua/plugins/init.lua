@@ -91,6 +91,9 @@ M.nvim = {
   ["kosayoda/nvim-lightbulb"] = {
     config = requirePluginConfig("lightbulb"),
   },
+  ["smjonas/inc-rename.nvim"] = {
+    config = requirePluginConfig("inc-rename"),
+  },
 
   -- completion
   ["hrsh7th/cmp-nvim-lsp"] = {},
