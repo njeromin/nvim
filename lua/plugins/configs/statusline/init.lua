@@ -29,19 +29,6 @@ table.insert(components.active[1], {
   left_sep = " ",
 })
 
---[[ local git_utils = require("feline.providers.git")
-table.insert(components.active[1], {
-  provider = "git_branch",
-  enabled = function () return git_utils.git_info_exists() end,
-  truncate_hide = true,
-  hl = {
-    bg = lighten(colours.bg, 8),
-    fg = lighten(colours.fg, 8),
-  },
-  left_sep = { " ", "slant_left", "block" },
-  right_sep = { "block", "slant_right" },
-}) ]]
-
 -- right section
 local lsp_utils = require("feline.providers.lsp")
 table.insert(components.active[3], {
@@ -83,7 +70,7 @@ table.insert(components.active[3], {
   provider = "position",
   hl = {
     name = "StatusLinePosition",
-    bg = lighten(colours.bg, 8),
+    bg = lighten(colours.bg.base, 8),
     fg = lighten(colours.fg, 8),
   },
   left_sep = { "slant_left_2", "block" },
@@ -93,8 +80,8 @@ table.insert(components.active[3], {
 -- setup feline
 local theme = {
   fg = colours.fg,
-  bg = darken(colours.bg, 5),
-  black = colours.black,
+  bg = darken(colours.bg.base, 5),
+  black = "#111111",
   skyblue = lighten(colours.blue, 5),
   cyan = colours.cyan,
   oceanblue = colours.blue,

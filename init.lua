@@ -22,11 +22,6 @@ SafeRequire("core.options")
 SafeRequire("core.packer")
 
 -- load custom per-directory config
-local custom_nvim_path = string.format("%s/.nvim", vim.fn.getcwd())
-local ok, _ = pcall(dofile, string.format("%s/init.lua", custom_nvim_path))
-if ok then
-  local nvim_path = vim.fn.stdpath("config")
-  os.execute(string.format("cp \"%s/.stylua.toml\" \"%s/.stylua.toml\"", nvim_path, custom_nvim_path))
-  os.execute(string.format("cp \"%s/neovim.yml\" \"%s/neovim.yml\"", nvim_path, custom_nvim_path))
-  os.execute(string.format("cp \"%s/selene.toml\" \"%s/selene.toml\"", nvim_path, custom_nvim_path))
-end
+SafeRequire("core.custom", function (custom)
+  custom.load_init()
+end)

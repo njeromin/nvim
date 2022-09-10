@@ -6,3 +6,7 @@ telescope.setup({})
 SafeRequire("notify", function ()
   telescope.load_extension("notify")
 end)
+
+SafeRequire("themer", function ()
+  telescope.load_extension("themes")
+end)

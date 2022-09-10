@@ -15,14 +15,21 @@ local default_config = {
   capabilities = capabilities,
 }
 
+local custom = require("core.custom")
+
 local function default_handler(server_name)
+  local config = default_config
+  local clc_ok, custom_lsp_config = pcall(custom.load_lsp_settings, server_name)
+  if clc_ok then config = vim.tbl_extend("keep", custom_lsp_config, default_config) end
+
   local ok, custom_setup = pcall(require, string.format("plugins.configs.lsp.settings.%s", server_name))
   if ok then
-    custom_setup(lspconfig, default_config)
+    custom_setup(lspconfig, config)
   else
-    lspconfig[server_name].setup(default_config)
+    lspconfig[server_name].setup(config)
   end
 end
 
 masonlsp.setup_handlers({ default_handler })
+
 require("plugins.configs.lsp.handlers")

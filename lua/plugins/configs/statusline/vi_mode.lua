@@ -46,7 +46,7 @@ local component = {
   hl = function ()
     return {
       name = vi_mode_utils.get_mode_highlight_name(),
-      fg = colours.bg,
+      fg = colours.bg.base,
       bg = vi_mode_utils.get_mode_color(),
       style = "bold",
     }

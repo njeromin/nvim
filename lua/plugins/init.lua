@@ -21,7 +21,7 @@ M.nvim = {
     config = requirePluginConfig("dressing"),
   },
 
-  ["RRethy/nvim-base16"] = {
+  ["themercorp/themer.lua"] = {
     config = SafeRequire("theme"),
   },
 
@@ -127,6 +127,7 @@ M.nvim = {
     config = requirePluginConfig("trouble"),
   },
   ["NvChad/nvim-colorizer.lua"] = {
+    disabled = true,
     event = { "BufRead", "BufNewFile" },
     config = function () require ("colorizer").setup() end,
   },
