@@ -33,6 +33,7 @@ wk.register({
     i = { function() require("packer").status() end, "Status" },
   },
 
+  i = { "<cmd>IconPickerNormal<cr>", "  Pick Icon" },
   m = { "<cmd>Mason<cr>", "  Open Mason" },
   t = { "<cmd>TroubleToggle<cr>", " Toggle Trouble"},
   e = { "<cmd>Neotree reveal<cr>",  "פּ  Focus Tree"  },
