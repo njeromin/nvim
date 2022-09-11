@@ -21,6 +21,7 @@ wk.register({
     name = "  Find",
 
     f = { "<cmd>Telescope find_files<cr>", "  Find File" },
+    r = { "<cmd>Telescope oldfiles<cr>", " Recent Files" },
     g = { "<cmd>Telescope live_grep<cr>", "  Grep" },
     n = { "<cmd>Telescope notify<cr>", "  Notifications" },
   },
@@ -35,4 +36,5 @@ wk.register({
   m = { "<cmd>Mason<cr>", "  Open Mason" },
   t = { "<cmd>TroubleToggle<cr>", " Toggle Trouble"},
   e = { "<cmd>Neotree reveal<cr>",  "פּ  Focus Tree"  },
+  c = { ":e $MYVIMRC | :cd %:p:h<CR>", " Edit Config" },
 }, { prefix = "<leader>" })

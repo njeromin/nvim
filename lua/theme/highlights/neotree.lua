@@ -9,4 +9,6 @@ return {
   NeoTreeWinSeparator = { fg = treebg, bg = treebg },
   NeoTreeFloatBorder = { fg = floatbg, bg = floatbg },
   NeoTreeFloatTitle = { fg = colours.heading.h2, bg = floatbg },
+  NeoTreeDirectoryIcon = { fg = colours.blue, },
+  NeoTreeDirectoryName = { fg = colours.blue },
 }

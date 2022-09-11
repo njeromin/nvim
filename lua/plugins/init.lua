@@ -142,7 +142,7 @@ M.nvim = {
     config = requirePluginConfig("indent-o-matic"),
   },
   ["lukas-reineke/indent-blankline.nvim"] = {
-    event = "BufRead",
+    --event = "BufRead",
     config = requirePluginConfig("indent-blankline"),
   },
   ["akinsho/bufferline.nvim"] = {
@@ -177,6 +177,9 @@ M.nvim = {
   },
   ["windwp/nvim-autopairs"] = {
     config = requirePluginConfig("autopairs"),
+  },
+  ["goolord/alpha-nvim"] = {
+    config = requirePluginConfig("alpha"),
   },
 }
 
