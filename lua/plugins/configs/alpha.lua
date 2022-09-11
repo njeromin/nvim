@@ -30,7 +30,7 @@ local function footer()
   local vim_version = vim.version()
   local version = string.format(" %s.%s.%s", vim_version.major, vim_version.minor, vim_version.patch)
 
-  local time = os.date("  %m-%d-%Y")
+  local time = os.date("  %d-%m-%Y")
 
   return string.format("%s   %s", time, version)
 end
