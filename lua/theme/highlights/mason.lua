@@ -3,7 +3,7 @@ local utils = require("utils.colours")
 local masonbg = utils.darken(colours.bg.base, 5)
 local fg_dark = utils.darken(colours.fg, 25)
 return {
-  MasonHeader = { fg = "#111111", bg = colours.orange },
+  MasonHeader = { fg = "#111111", bg = colours.red },
   MasonHighlight = { fg = colours.blue },
   MasonHighlightBlock = { fg = masonbg, bg = colours.green },
   MasonHighlightBlockBold = { fg = masonbg, bg = colours.green },

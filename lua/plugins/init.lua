@@ -64,7 +64,9 @@ M.nvim = {
 
   -- lsp
   ["b0o/SchemaStore.nvim"] = {},
-  ["stevearc/vim-arduino"] = {},
+  ["stevearc/vim-arduino"] = {
+    setup = function () vim.g.arduino_dir = string.format("%s/.arduino15", os.getenv("HOME"))  end,
+  },
   ["folke/lua-dev.nvim"] = {},
   ["simrat39/rust-tools.nvim"] = {},
   ["Saecki/crates.nvim"] = {
