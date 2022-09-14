@@ -27,6 +27,10 @@ if treesitter_opts.rainbow_pairs then
   opts.rainbow = {
     enable = true,
   }
+
+  SafeRequire("theme.colours", function (colours)
+    opts.rainbow.colors = { colours.red, colours.green, colours.yellow, colours.blue, colours.magenta, colours.cyan, colours.fg }
+  end)
 end
 
 treesitter.setup(opts)

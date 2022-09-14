@@ -1,5 +1,5 @@
 return {
-	spell = true,
+	spell = false,
 	spelllang = "en_au",
 	laststatus = 3,
 	showmode = false,

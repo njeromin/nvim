@@ -7,9 +7,9 @@ return {
   treesitter = {
     enable = true,
     textobjects = true,
-    rainbow_pairs = false,
+    rainbow_pairs = true,
     html_autotag = true,
-    spellsitter = true,
+    spellsitter = false,
     highlight_arguments = true,
   }
 }
