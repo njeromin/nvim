@@ -122,7 +122,7 @@ M.nvim = {
 
   -- formatting and linting
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    -- config = requirePluginConfig("lsp.null"),
+    config = requirePluginConfig("lsp.null"),
   },
   ["gpanders/editorconfig.nvim"] = {
     event = "BufRead",
