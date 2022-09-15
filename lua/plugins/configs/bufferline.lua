@@ -13,6 +13,6 @@ bufline.setup({
         separator = true,
       }
     },
-    always_show_bufferline = true,
+    always_show_bufferline = false,
   },
 })
