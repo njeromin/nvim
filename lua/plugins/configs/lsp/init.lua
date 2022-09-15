@@ -11,9 +11,7 @@ vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSig
 vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = " ", texthl = "DiagnosticSignHint"})
 
-local default_config = {
-  capabilities = capabilities,
-}
+local default_config = { capabilities = capabilities }
 
 local custom = require("core.custom")
 
