@@ -12,7 +12,10 @@ M.nvim = {
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
   ["kevinhwang91/promise-async"] = {},
   ["romgrk/fzy-lua-native"] = {},
-  ["kyazdani42/nvim-web-devicons"] = {},
+  ["kyazdani42/nvim-web-devicons"] = {
+    config = requirePluginConfig("icons"),
+  },
+  ["famiu/bufdelete.nvim"] = {},
   ["MunifTanjim/nui.nvim"] = {},
   ["antoinemadec/FixCursorHold.nvim"] = {
     config = function () vim.g.cursorhold_updatetime = 100 end,
@@ -119,7 +122,7 @@ M.nvim = {
 
   -- formatting and linting
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    config = requirePluginConfig("lsp.null"),
+    -- config = requirePluginConfig("lsp.null"),
   },
   ["gpanders/editorconfig.nvim"] = {
     event = "BufRead",

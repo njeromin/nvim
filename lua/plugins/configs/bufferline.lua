@@ -8,13 +8,11 @@ bufline.setup({
     offsets = {
       {
         filetype = "neo-tree",
-        text = function ()
-          return ""
-        end,
+        text = "",
         highlight = "NeoTreeNormal",
-        text_align = "left",
+        separator = true,
       }
     },
-    always_show_bufferline = false,
+    always_show_bufferline = true,
   },
 })

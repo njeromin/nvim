@@ -1,4 +1,5 @@
-local null = require("null-ls")
+local ok, null = pcall(require, "null-ls")
+if not ok then return end
 
 local b = null.builtins
 
