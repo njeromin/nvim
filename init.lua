@@ -1,27 +1,17 @@
--- load impatient
 pcall(require, "impatient")
-pcall(require, "plugin.packer_compiled")
 
-function SafeRequire(package_name, handler)
-  local ok, package = pcall(require, package_name)
-
+-- set up import global
+_G.import = function (pkg_name, pkg_handler)
+  local ok, pkg = pcall(require, pkg_name)
   if ok then
-    if type(handler) == "function" then
-      handler(package)
-    end
-  else
-    local n_ok, n = pcall(require, "notify")
-    if n_ok then
-      ---@diagnostic disable-next-line: redundant-parameter
-      n(package, "error", { title = string.format("Failed to load '%s'", package_name) })
-    end
+    pkg_handler(pkg)
   end
 end
+import("import", function (imp) _G.import = imp.import end)
 
-SafeRequire("core.options")
-SafeRequire("core.packer")
+-- require core
+require("core.packer")
+require("core.options")
 
--- load custom per-directory config
-SafeRequire("core.custom", function (custom)
-  custom.load_init()
-end)
+-- TODO: move
+vim.g.mapleader = " "

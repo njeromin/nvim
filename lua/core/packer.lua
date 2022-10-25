@@ -1,53 +1,36 @@
--- bootstrapper
-local packer_bootstrap = nil
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
----@diagnostic disable-next-line: missing-parameter
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd [[packadd packer.nvim]]
-end
-
--- autocmd to autocompile
-vim.api.nvim_create_augroup("packer_user_config", { clear = false })
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = "packer_user_config",
-  pattern = string.format("%s/lua/plugins/*", vim.fn.stdpath("config")),
-  callback = function ()
-    pcall(require, "core.packer")
-    SafeRequire("packer", function (packer) packer.compile() end)
-  end
-})
-
 local ok, packer = pcall(require, "packer")
-if not ok then return end
+if not ok then
+  local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  ---@diagnostic disable-next-line: missing-parameter
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+    vim.cmd("packadd packer.nvim")
+    require("core.packer")
+  end
+  return
+end
 
 packer.startup({
   function (use, use_rocks)
-		-- allow packer to manage itself
-		use("wbthomason/packer.nvim")
-
-		local plugins = require("plugins")
-
-    for key, value in pairs(plugins.rocks) do
-      table.insert(value, 1, key)
-      use_rocks(value)
-    end
-
-    for key, value in pairs(plugins.nvim) do
-      table.insert(value, 1, key)
-      use(value)
-    end
-
-    -- bootstrap if needed
-    if packer_bootstrap then
-      require("packer").sync()
-    end
+    -- allow packer to manage itself
+    use("wbthomason/packer.nvim")
+    -- caching
+    use("lewis6991/impatient.nvim")
+    -- safe require
+    use("miversen33/import.nvim")
+  
+    -- plugins entrypoint
+    import("plugins", function (fn)
+      if type(fn) == "function" then
+        fn(use, use_rocks)
+      end
+    end)
   end,
   config = {
     display = {
       open_fn = function ()
         return require("packer.util").float({ border = "single" })
-      end
-    }
+      end,
+    },
   },
 })

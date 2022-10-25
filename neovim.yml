@@ -2,9 +2,7 @@
 base: lua52
 
 globals:
-  packer_plugins:
-    any: true
-  SafeRequire:
+  import:
     any: true
   vim:
     any: true
