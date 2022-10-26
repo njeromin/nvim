@@ -1,2 +1,6 @@
-require("scrollbar").setup()
-require("scrollbar.handlers.search")
+require("scrollbar").setup({
+  handlers = {
+    diagnostic = true,
+    search = true,
+  }
+})

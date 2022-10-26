@@ -13,6 +13,3 @@ import("import", function (imp) _G.import = imp.import end)
 require("core.options")
 require("core.packer")
 require("core.mappings")
-
--- TODO: move
-vim.g.mapleader = " "

@@ -1,4 +1,5 @@
-return function (u, ur)
+-- input: use, use_rock
+return function (u)
   -- libraries/utilities
   u {
     "nvim-lua/plenary.nvim",
@@ -24,7 +25,7 @@ return function (u, ur)
     "miversen33/netman.nvim",
     config = function () require("netman") end,
   }
-  
+
   -- mason
   u {
     "williamboman/mason.nvim",
@@ -35,11 +36,11 @@ return function (u, ur)
     },
     config = function () import("plugins.configs.mason") end,
   }
-    
+
   -- treesitter
   u {
     "nvim-treesitter/nvim-treesitter",
-    requires = { 
+    requires = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "windwp/nvim-ts-autotag",
@@ -52,7 +53,14 @@ return function (u, ur)
   u {
     "neovim/nvim-lspconfig",
     after = "mason-lspconfig.nvim",
+    requires = {
+      "folke/neodev.nvim",
+    },
     config = function () import("plugins.configs.lsp") end,
+  }
+  u {
+    "j-hui/fidget.nvim",
+    config = function () import("plugins.configs.fidget") end,
   }
 
   -- general
@@ -82,7 +90,15 @@ return function (u, ur)
   }
 
   u {
+    "ellisonleao/gruvbox.nvim",
+    module = "gruvbox",
+  }
+  u {
+    "rktjmp/lush.nvim",
+    config = function () import("theme") end,
+  }
+  --[[u {
     "projekt0n/github-nvim-theme",
     config = function () require("github-theme").setup({ theme_style = "dimmed" }) end,
-  }
+  }]]
 end
