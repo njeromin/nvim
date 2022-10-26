@@ -10,6 +10,7 @@ return function (u, ur)
   }
   u {
     "MunifTanjim/nui.nvim",
+    module = "nui",
   }
   u {
     "stevearc/dressing.nvim",
@@ -19,13 +20,39 @@ return function (u, ur)
     "rcarriga/nvim-notify",
     config = function () vim.notify = require("notify") end,
   }
-
+  u {
+    "miversen33/netman.nvim",
+    config = function () require("netman") end,
+  }
+  
+  -- mason
+  u {
+    "williamboman/mason.nvim",
+    requires = {
+      "williamboman/mason-lspconfig.nvim",
+      "jayp0521/mason-null-ls.nvim",
+      "jayp0521/mason-nvim-dap.nvim",
+    },
+    config = function () import("plugins.configs.mason") end,
+  }
+    
   -- treesitter
   u {
     "nvim-treesitter/nvim-treesitter",
-    requries = { "windwp/nvim-ts-autotag" },
+    requires = { 
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "windwp/nvim-ts-autotag",
+    },
     config = function () import("plugins.configs.treesitter") end,
     run = function () require("nvim-treesitter.install").update({ with_sync = true }) end,
+  }
+
+  -- lsp
+  u {
+    "neovim/nvim-lspconfig",
+    after = "mason-lspconfig.nvim",
+    config = function () import("plugins.configs.lsp") end,
   }
 
   -- general
@@ -44,6 +71,14 @@ return function (u, ur)
   u {
     "petertriho/nvim-scrollbar",
     config = function () import("plugins.configs.scrollbar") end,
+  }
+  u {
+    "lewis6991/gitsigns.nvim",
+    config = function () require("gitsigns").setup() end,
+  }
+  u {
+    "nvim-telescope/telescope.nvim",
+    config = function () import("plugins.configs.telescope") end,
   }
 
   u {

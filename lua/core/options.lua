@@ -1,3 +1,4 @@
-import("user.vimopts", function (vo)
-  for k, v in pairs (vo) do vim.opt[k] = v end
+import("user.options", function (opts)
+  -- vim opts
+  for k, v in pairs(opts.vim) do vim.opt[k] = v end
 end)
