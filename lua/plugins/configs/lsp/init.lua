@@ -12,10 +12,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 )
 
 -- setup neovim capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-import("cmp_nvim_lsp", function (cmp)
-  capabilities = cmp.update_capabilities(capabilities)
-end)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- set diagnostic icons
 vim.fn.sign_define("DiagnosticSignError", {text = " ", texthl = "DiagnosticSignError"})

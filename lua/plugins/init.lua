@@ -25,6 +25,10 @@ return function (u)
     "miversen33/netman.nvim",
     config = function () require("netman") end,
   }
+  u {
+    "famiu/bufdelete.nvim",
+    module = "bufdelete",
+  }
 
   -- mason
   u {
@@ -47,6 +51,28 @@ return function (u)
     },
     config = function () import("plugins.configs.treesitter") end,
     run = function () require("nvim-treesitter.install").update({ with_sync = true }) end,
+  }
+
+  -- nvim-cmp
+  u {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "onsails/lspkind.nvim",
+
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "David-Kunz/cmp-npm",
+    },
+    config = function () import("plugins.configs.cmp") end,
+  }
+  u {
+    "rafamadriz/friendly-snippets",
+    module = "cmp_nvim_lsp",
+  }
+  u {
+    "L3MON4D3/LuaSnip",
+    wants = "friendly-snippets",
+    config = function () import("plugins.configs.cmp.luasnip") end,
   }
 
   -- lsp
@@ -73,6 +99,10 @@ return function (u)
     config = function () import("plugins.configs.neo-tree") end,
   }
   u {
+    "akinsho/bufferline.nvim",
+    config = function () import("plugins.configs.bufferline") end,
+  }
+  u {
     "kevinhwang91/nvim-hlslens",
     config = function () import("plugins.configs.hlslens") end,
   }
@@ -85,20 +115,25 @@ return function (u)
     config = function () require("gitsigns").setup() end,
   }
   u {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function () import("plugins.configs.indent-blankline") end,
+  }
+  u {
+    "numToStr/Comment.nvim",
+    event = "BufRead",
+    config = function () require("Comment").setup() end,
+  }
+  u {
     "nvim-telescope/telescope.nvim",
     config = function () import("plugins.configs.telescope") end,
   }
 
   u {
-    "ellisonleao/gruvbox.nvim",
-    module = "gruvbox",
-  }
-  u {
-    "rktjmp/lush.nvim",
+    "tjdevries/colorbuddy.nvim",
     config = function () import("theme") end,
   }
-  --[[u {
+  --[[ u {
     "projekt0n/github-nvim-theme",
     config = function () require("github-theme").setup({ theme_style = "dimmed" }) end,
-  }]]
+  } ]]
 end
