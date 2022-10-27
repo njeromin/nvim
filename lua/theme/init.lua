@@ -5,56 +5,44 @@ local theme_name = require("user.options").theme
 
 import("theme.themes."..theme_name, function (t)
   if type(t) == "function" then
-    Colour.new("background", "#252931")
-    Colour.new("foreground", "#cccccc")
-
-    Colour.new("grey", "#abb2bf")
-    Colour.new("red", "#e06c75")
-    Colour.new("purple", "#c678dd")
-    Colour.new("green", "#98c379")
-    Colour.new("brown", "#be5046")
-    Colour.new("orange", "#d19a66")
-    Colour.new("yellow", "#e5c07b")
-    Colour.new("blue", "#61afef")
-    Colour.new("cyan", "#56b6c2")
-    Colour.new("primary", "#528bff")
-
-    colours.TS_Comment = colours.grey
-    colours.TS_Function = colours.blue
-    colours.TS_FunctionBuiltin = colours.cyan
-    colours.TS_Keyword = colours.purple
-    colours.TS_String = colours.green
-    colours.TS_Number = colours.orange
-    colours.TS_Boolean = colours.yellow
-    colours.TS_Punctuation = colours.brown
-    colours.TS_Parameter = colours.red
-    colours.TS_Field = colours.primary
+    t(Colour, colours, Group, groups)
 
     -- vim
-    Group.new("Normal", colours.foreground, colours.background)
+    Group.new("Normal", colours.t_fg, colours.t_bg)
     Group.new("NormalNC", groups.Normal, groups.Normal)
+    Group.new("CursorLine", nil, colours.t_bg:light())
+    Group.new("Pmenu", colours.t_fg_dark, colours.t_bg_dark)
+    Group.new("PmenuSel", colours.t_fg, colours.t_bg)
+    Group.new("SignColumn", groups.Normal, groups.Normal)
+    Group.new("LineNr", colours.grey, groups.Normal)
+    Group.new("CursorLineNr", colours.t_fg, groups.Normal)
+
+    -- git
+    Group.new("DiffAdd", colours.green, groups.Normal)
+    Group.new("DiffChange", colours.orange, groups.Normal)
+    Group.new("DiffDelete", colours.red, groups.Normal)
 
     -- lsp
-    Group.new("Error", colours.red)
-
-    -- treesitter
-    Group.new("@comment", colours.TS_Comment)
-    Group.new("@function", colours.TS_Function)
-    Group.new("@function.builtin", colours.TS_FunctionBuiltin)
-    Group.new("@keyword", colours.TS_Keyword)
-    Group.new("@conditional", colours.TS_Keyword)
-    Group.new("@structure", colours.TS_Keyword)
-    Group.new("@constant", colours.TS_Keyword)
-    Group.new("@string", colours.TS_String)
-    Group.new("@number", colours.TS_Number)
-    Group.new("@float", colours.TS_Number)
-    Group.new("@boolean", colours.TS_Boolean)
-    Group.new("@punctuation", colours.TS_Punctuation)
-    Group.new("@parameter", colours.TS_Parameter)
-    Group.new("@field", colours.TS_Field)
+    Group.new("DiagnosticError", colours.red)
+    Group.new("DiagnosticHint", colours.cyan)
+    Group.new("DiagnosticInfo", colours.blue)
+    Group.new("DiagnosticWarn", colours.yellow)
 
     -- tree
-    Group.new("NeoTreeNormal", colours.foreground, colours.background)
+    Group.new("NeoTreeNormal", colours.t_fg, colours.t_bg_dark)
     Group.new("NeoTreeNormalNC", groups.NeoTreeNormal, groups.NeoTreeNormal)
+    Group.new("NeoTreeWinSeparator", colours.t_bg_dark, groups.NeoTreeNormal)
+    Group.new("NeoTreeDirectoryIcon", colours.primary)
+    Group.new("NeoTreeDirectoryName", colours.primary)
+
+    -- bufferline
+    Group.new("BufferLineOffsetSeparator", groups.NeoTreeNormal, groups.NeoTreeNormal)
+
+    -- indent blankline
+    Group.new("IndentBlanklineChar", colours.grey:dark())
+    Group.new("IndentBlanklineSpaceChar", groups.IndentBlanklineChar)
+    Group.new("IndentBlanklineSpaceCharBlankline", groups.IndentBlanklineChar)
+    Group.new("IndentBlanklineContextChar", colours.grey:light())
+    Group.new("IndentBlanklineContextStart", nil, nil)
   end
 end)
