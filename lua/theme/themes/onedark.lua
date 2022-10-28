@@ -1,49 +1,53 @@
-return function (Colour, colours, Group, groups)
-  Colour.new("t_bg", "#252931")
-  Colour.new("t_bg_dark", "#1d2025")
-  Colour.new("t_fg", "#cccccc")
-  Colour.new("t_fg_dark", "#abb2bf")
+local utils = require("theme.utils")
 
-  Colour.new("grey", "#7f848e")
-  Colour.new("red", "#e06c75")
-  Colour.new("purple", "#c678dd")
-  Colour.new("green", "#98c379")
-  Colour.new("brown", "#be5046")
-  Colour.new("orange", "#d19a66")
-  Colour.new("yellow", "#e5c07b")
-  Colour.new("blue", "#61afef")
-  Colour.new("cyan", "#56b6c2")
-  Colour.new("primary", "#528bff")
+return function (group, groups)
+  local colours = {
+    bg = "#252931",
+    bg_dark = "#1d2025",
+    fg = "#cccccc",
+    fg_dark = "#abb2bf",
+
+    grey = "#7f848e",
+    red = "#e06c75",
+    purple = "#c678dd",
+    green = "#98c379",
+    brown = "#be5046",
+    orange = "#d19a66",
+    yellow = "#e5c07b",
+    primary = "#528bff",
+  }
 
   -- treesitter/syntax
-  Group.new("Comment", colours.grey)
-  Group.new("Identifier", colours.blue)
-  Group.new("@function", colours.blue)
-  Group.new("@function.builtin", colours.cyan)
-  Group.new("@function.macro", colours.orange)
-  Group.new("@keyword", colours.purple)
-  Group.new("@conditional", colours.purple)
-  Group.new("@structure", colours.purple)
-  Group.new("@constant", colours.purple)
-  Group.new("@constant.builtin", colours.orange)
-  Group.new("@constant.macro", colours.purple)
-  Group.new("@define", colours.purple)
-  Group.new("@macro", colours.purple)
-  Group.new("@preproc", colours.purple)
-  Group.new("@include", colours.purple)
-  Group.new("@string", colours.green)
-  Group.new("@string.escape", colours.orange)
-  Group.new("@number", colours.orange)
-  Group.new("@float", colours.orange)
-  Group.new("@boolean", colours.yellow)
-  Group.new("@parameter", colours.red)
-  Group.new("@field", colours.red)
-  Group.new("@repeat", colours.yellow)
-  Group.new("@label", colours.yellow)
-  Group.new("@type", colours.yellow)
-  Group.new("@exception", colours.yellow)
-  Group.new("@type.definition", colours.yellow)
-  Group.new("@storageclass", colours.yellow)
-  Group.new("@operator", colours.t_fg_dark)
-  Group.new("@punctuation", colours.t_fg_dark)
+  group("Comment", { fg = colours.grey })
+  group("Identifier", { fg = colours.blue })
+  group("@function", { fg = colours.blue })
+  group("@function.builtin", { fg = colours.cyan })
+  group("@function.macro", { fg = colours.orange })
+  group("@keyword", { fg = colours.purple })
+  group("@conditional", { fg = colours.purple })
+  group("@structure", { fg = colours.purple })
+  group("@constant", { fg = colours.purple })
+  group("@constant.builtin", { fg = colours.orange })
+  group("@constant.macro", { fg = colours.purple })
+  group("@define", { fg = colours.purple })
+  group("@macro", { fg = colours.purple })
+  group("@preproc", { fg = colours.purple })
+  group("@include", { fg = colours.purple })
+  group("@string", { fg = colours.green })
+  group("@string.escape", { fg = colours.orange })
+  group("@number", { fg = colours.orange })
+  group("@float", { fg = colours.orange })
+  group("@boolean", { fg = colours.yellow })
+  group("@parameter", { fg = colours.red })
+  group("@field", { fg = colours.red })
+  group("@repeat", { fg = colours.yellow })
+  group("@label", { fg = colours.yellow })
+  group("@type", { fg = colours.yellow })
+  group("@exception", { fg = colours.yellow })
+  group("@type.definition", { fg = colours.yellow })
+  group("@storageclass", { fg = colours.yellow })
+  group("@operator", { fg = colours.fg_dark })
+  group("@punctuation", { fg = colours.fg_dark })
+
+  return colours
 end

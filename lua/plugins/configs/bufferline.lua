@@ -15,7 +15,7 @@ require("bufferline").setup({
       }
     },
     indicator = {
-      --style = "underline",
+      style = "underline",
     },
     always_show_bufferline = false,
     close_command = close,
