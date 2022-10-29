@@ -9,6 +9,7 @@ return function (group, groups)
 
     grey = "#7f848e",
     red = "#e06c75",
+    blue = "#61afef",
     purple = "#c678dd",
     green = "#98c379",
     brown = "#be5046",
