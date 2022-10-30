@@ -39,11 +39,10 @@ local vi_mode_text = {
 return function (win, buf)
   local mode = vim.fn.mode()
   local txt = vi_mode_text[mode] or "NORMAL"
-  local hl = string.format("SL_mode_%s", txt)
-  group(hl, {
+  group("SL_Mode", {
     bg = vi_mode_colours[txt],
-    fg = "#111111",
+    fg = groups.StatusLine.bg,
     bold = true,
   })
-  return "%#"..hl.."# "..txt.." %#StatusLine#"
+  return string.format("%s %s %s", "%#SL_Mode#", txt, "%#StatusLine#")
 end

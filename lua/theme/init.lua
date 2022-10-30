@@ -61,15 +61,15 @@ import("theme.themes."..theme_name, function (t)
     group("ScrollbarHandle", { bg = lighten(colours.grey, 10) })
 
     -- telescope
-    group("TelescopeNormal", { bg = darken(colours.bg_dark, 5) })
+    group("TelescopeNormal", { bg = darken(colours.bg_dark, 3) })
     group("TelescopeTitle", { fg = "#111111", bg = colours.blue })
     group("TelescopeBorder", { fg = groups.TelescopeNormal.bg, bg = groups.TelescopeNormal.bg })
     group("TelescopeSelectionCaret", { fg = colours.grey, bg = groups.Visual.bg })
 
     group("TelescopeResultsNormal", groups.TelescopeNormal)
     group("TelescopeResultsTitle", { fg = "#111111", bg = colours.green })
-    
-    group("TelescopePreviewNormal", { bg = darken(colours.bg_dark, 15) })
+
+    group("TelescopePreviewNormal", { bg = darken(colours.bg_dark, 6) })
     group("TelescopePreviewTitle", { fg = "#111111", bg = colours.red })
     group("TelescopePreviewBorder", { fg = groups.TelescopePreviewNormal.bg, bg = groups.TelescopePreviewNormal.bg })
 
@@ -79,7 +79,7 @@ import("theme.themes."..theme_name, function (t)
     -- fidget
     group("FidgetTitle", { fg = colours.blue, bold = true })
     group("FidgetTask", { fg = colours.cyan })
-  
+
     -- shared treesitter
     group("@todo", { fg = "#111111", bg = colours.orange })
   end
