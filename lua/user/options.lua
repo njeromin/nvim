@@ -1,7 +1,7 @@
 local indent_width = 2
 
 return {
-  theme = "onedark",
+  theme = "radium",
   keymapping = {
     leader = " ",
   },
@@ -21,6 +21,7 @@ return {
     fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" },
     ignorecase = true,
     smartcase = true,
+    showmode = false,
     number = true,
     numberwidth = 1,
     ruler = false,

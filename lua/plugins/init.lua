@@ -127,13 +127,12 @@ return function (u)
     "nvim-telescope/telescope.nvim",
     config = function () import("plugins.configs.telescope") end,
   }
-
   u {
-    "tjdevries/colorbuddy.nvim",
-    config = function () import("theme") end,
+    "tjdevries/express_line.nvim",
+    config = function () import("plugins.configs.statusline") end,
   }
-  --[[ u {
-    "projekt0n/github-nvim-theme",
-    config = function () require("github-theme").setup({ theme_style = "dimmed" }) end,
-  } ]]
+  u {
+    "ziontee113/icon-picker.nvim",
+    config = function () import("plugins.configs.icon-picker") end,
+  }
 end

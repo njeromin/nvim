@@ -12,6 +12,9 @@ tree.setup({
     indent = {
       with_expanders = true,
     },
+    modified = {
+      symbol = "",
+    },
   },
   window = {
     width = "20%",
@@ -23,6 +26,7 @@ tree.setup({
     filtered_items = {
       visible = true,
     },
+    use_libuv_file_watcher = true,
   },
 })
 

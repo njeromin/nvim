@@ -1,27 +1,29 @@
 local utils = require("theme.utils")
 
+-- modified radium theme
 return function (group, groups)
   local colours = {
-    bg = "#252931",
-    bg_dark = "#1d2025",
-    fg = "#cccccc",
-    fg_dark = "#abb2bf",
+    bg = "#101317",
+    bg_dark = "#191d22",
+    fg = "#d4d4d5",
+    fg_dark = "#adadad",
 
-    grey = "#7f848e",
-    red = "#e06c75",
-    blue = "#61afef",
-    cyan = "#56b6c2",
-    purple = "#c678dd",
-    green = "#98c379",
-    brown = "#be5046",
-    orange = "#d19a66",
-    yellow = "#e5c07b",
-    primary = "#528bff",
+    grey = "#45484c",
+    red = "#f87070",
+    blue = "#7ab0df",
+    cyan = "#50cad2",
+    purple = "#c397d8",
+    green = "#37d99e",
+    brown = "#f25f3a",
+    orange = "#f0a988",
+    yellow = "#ffe59e",
+    primary = "#79dcaa",
   }
 
   -- syntax/treesitter
   group("Comment", { fg = colours.grey })
   group("Identifier", { fg = colours.blue })
+  group("Special", { fg = colours.fg })
   group("@function", { fg = colours.blue })
   group("@function.builtin", { fg = colours.cyan })
   group("@function.macro", { fg = colours.orange })
@@ -49,7 +51,7 @@ return function (group, groups)
   group("@type.definition", { fg = colours.yellow })
   group("@storageclass", { fg = colours.yellow })
   group("@operator", { fg = colours.fg_dark })
-  group("@punctuation", { fg = colours.fg_dark })
+  group("@punctuation", { fg = colours.fg })
 
   return colours
 end
