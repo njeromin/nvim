@@ -23,7 +23,12 @@ return function (group, groups)
   -- syntax/treesitter
   group("Comment", { fg = colours.grey })
   group("Identifier", { fg = colours.blue })
+  group("Statement", { fg = colours.purple })
   group("Special", { fg = colours.fg })
+  group("Constant", { fg = colours.purple })
+  group("String", { fg = colours.green })
+  group("Conditional", { fg = colours.yellow })
+
   group("@function", { fg = colours.blue })
   group("@function.builtin", { fg = colours.cyan })
   group("@function.macro", { fg = colours.orange })

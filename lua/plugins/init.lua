@@ -135,4 +135,8 @@ return function (u)
     "ziontee113/icon-picker.nvim",
     config = function () import("plugins.configs.icon-picker") end,
   }
+  u {
+    "folke/noice.nvim",
+    config = function () import("plugins.configs.noice") end,
+  }
 end

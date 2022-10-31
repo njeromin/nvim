@@ -9,12 +9,13 @@ local theme_name = require("user.options").theme
 import("theme.themes."..theme_name, function (t)
   if type(t) == "function" then
     _G.colours = t(group, groups)
-    
+
     -- vim
     group("Normal", { fg = colours.fg, bg = colours.bg })
     group("NormalNC", groups.Normal)
     group("Title", { fg = colours.primary, bold = true })
     group("NonText", { fg = colours.fg_dark })
+    group("Error", { fg = colours.red, bg = "NONE", bold = true })
 
     group("Pmenu", { fg = colours.fg_dark, bg = darken(colours.bg_dark, 6) })
     group("PmenuSel", { fg = colours.fg, bg = colours.bg })
