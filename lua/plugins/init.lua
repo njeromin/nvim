@@ -82,6 +82,7 @@ return function (u)
     requires = {
       "folke/neodev.nvim",
     },
+    module = "neodev",
     config = function () import("plugins.configs.lsp") end,
   }
   u {
@@ -92,6 +93,7 @@ return function (u)
   -- general
   u {
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function () import("plugins.configs.autopairs") end,
   }
   u {
@@ -138,5 +140,15 @@ return function (u)
   u {
     "folke/noice.nvim",
     config = function () import("plugins.configs.noice") end,
+  }
+  u {
+    "Pocco81/auto-save.nvim",
+    event = "BufRead",
+    config = function () import("plugins.configs.auto-save") end,
+  }
+
+  u {
+    "alec-gibson/nvim-tetris",
+    cmd = "Tetris",
   }
 end

@@ -1,7 +1,7 @@
 local vi_mode_colours = {
   NORMAL = colours.green,
   INSERT = colours.blue,
-  VISUAL = colours.magenta,
+  VISUAL = colours.purple,
   OP = colours.green,
   BLOCK = colours.blue,
   REPLACE = colours.red,

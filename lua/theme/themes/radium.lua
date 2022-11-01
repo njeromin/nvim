@@ -27,6 +27,8 @@ return function (group, groups)
   group("Special", { fg = colours.fg })
   group("Constant", { fg = colours.purple })
   group("String", { fg = colours.green })
+  group("Boolean", { fg = colours.orange })
+  group("Number", { fg = colours.orange })
   group("Conditional", { fg = colours.yellow })
 
   group("@function", { fg = colours.blue })
