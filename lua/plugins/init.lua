@@ -146,6 +146,10 @@ return function (u)
     event = "BufRead",
     config = function () import("plugins.configs.auto-save") end,
   }
+  u {
+    "goolord/alpha-nvim",
+    config = function () import("plugins.configs.alpha") end,
+  }
 
   u {
     "alec-gibson/nvim-tetris",

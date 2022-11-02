@@ -80,6 +80,10 @@ import("theme.themes."..theme_name, function (t)
     -- fidget
     group("FidgetTitle", { fg = colours.blue, bold = true })
     group("FidgetTask", { fg = colours.cyan })
+  
+    -- alpha
+    group("AlphaHeader", { fg = colours.yellow })
+    group("AlphaFooter", { fg = colours.blue })
 
     -- shared treesitter
     group("@todo", { fg = "#111111", bg = colours.orange })
