@@ -1,3 +1,4 @@
+-- TODO: improve globals
 local utils = require("theme.utils")
 _G.groups = utils.groups
 _G.group = utils.group

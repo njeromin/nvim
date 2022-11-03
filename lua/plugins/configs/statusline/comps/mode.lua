@@ -41,7 +41,7 @@ return function (win, buf)
   local txt = vi_mode_text[mode] or "NORMAL"
   group("SL_Mode", {
     bg = vi_mode_colours[txt],
-    fg = groups.StatusLine.bg,
+    fg = groups.SL_Light.bg,
     bold = true,
   })
   return string.format("%s %s %s", "%#SL_Mode#", txt, "%#StatusLine#")

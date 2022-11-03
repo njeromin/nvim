@@ -80,9 +80,10 @@ return function (u)
     "neovim/nvim-lspconfig",
     after = "mason-lspconfig.nvim",
     requires = {
-      "folke/neodev.nvim",
+      { "folke/neodev.nvim", module = "neodev" },
+      { "simrat39/rust-tools.nvim", module = "rust-tools" },
+      { "someone-stole-my-name/yaml-companion.nvim", module = "yaml-companion" },
     },
-    module = "neodev",
     config = function () import("plugins.configs.lsp") end,
   }
   u {
@@ -149,6 +150,9 @@ return function (u)
   u {
     "goolord/alpha-nvim",
     config = function () import("plugins.configs.alpha") end,
+  }
+  u {
+    "ziglang/zig.vim",
   }
 
   u {
