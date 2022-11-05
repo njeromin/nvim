@@ -152,6 +152,12 @@ return function (u)
     config = function () import("plugins.configs.alpha") end,
   }
   u {
+    "akinsho/toggleterm.nvim",
+    config = function () import("plugins.configs.toggleterm") end,
+  }
+
+  -- language plugins
+  u {
     "ziglang/zig.vim",
   }
 

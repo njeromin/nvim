@@ -30,4 +30,4 @@ tree.setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>Neotree reveal<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal<cr>", { noremap = true, silent = true })
