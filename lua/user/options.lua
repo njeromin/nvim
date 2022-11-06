@@ -1,7 +1,7 @@
 local indent_width = 2
 
 return {
-  theme = "radium",
+  theme = "gruvbox",
   keymapping = {
     leader = " ",
   },

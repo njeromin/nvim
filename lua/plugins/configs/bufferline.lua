@@ -23,3 +23,7 @@ require("bufferline").setup({
     separator_style = "thin",
   },
 })
+
+-- mappings
+vim.keymap.set({ "n", "i" }, "<Tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "i" }, "<C-Tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true })

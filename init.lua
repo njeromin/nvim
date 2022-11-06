@@ -14,3 +14,8 @@ require("core.options")
 require("theme")
 require("core.packer")
 require("core.mappings")
+
+-- load neovide config if needed
+if vim.g.neovide then
+  require("core.neovide")
+end

@@ -6,7 +6,7 @@ local utils = require("theme.utils")
 return function (group, groups)
   local colours = {
     bg = "#282828",
-    bg_dark = "#1d2021", -- bg0_h
+    bg_dark = "#1f1f1f", -- bg0_h
     fg = "#ebdbb2",
     fg_dark = "#d5c4a1", --grubox fg2
 
@@ -15,44 +15,74 @@ return function (group, groups)
     blue = "#83a598",
     cyan = "#8ec07c", -- gruvbox aqua
     purple = "#d3869b",
-    green = "#98971a",
+    green = "#b8bb26",
     brown = "#d65d0e", -- gruvbox dark orange
     orange = "#fe8019",
-    yellow = "#b8bb26",
+    yellow = "#fabd2f",
     primary = "#689d6a", --gruvbox dark aqua
   }
 
   -- syntax/treesitter
   group("Comment", { fg = colours.grey })
   group("Identifier", { fg = colours.blue })
-  group("@function", { fg = colours.blue })
-  group("@function.builtin", { fg = colours.cyan })
-  group("@function.macro", { fg = colours.orange })
-  group("@keyword", { fg = colours.red })
+  group("Statement", { fg = colours.red })
+  group("Special", { fg = colours.fg })
+  group("Constant", { fg = colours.fg })
+  group("String", { fg = colours.cyan })
+  group("Boolean", { fg = colours.purple })
+  group("Number", { fg = colours.purple })
+  group("Conditional", { fg = colours.red })
+
+  group("@annotation", { fg = colours.purple })
+  group("@attribute", { fg = colours.purple })
+  group("@boolean", { fg = colours.purple })
+  group("@character", { fg = colours.aqua })
+  group("@comment", { fg = colours.grey })
   group("@conditional", { fg = colours.red })
-  group("@structure", { fg = colours.red })
-  group("@constant", { fg = colours.red })
-  group("@constant.builtin", { fg = colours.orange })
-  group("@constant.macro", { fg = colours.red })
-  group("@define", { fg = colours.cyan })
-  group("@macro", { fg = colours.cyan })
-  group("@preproc", { fg = colours.cyan })
-  group("@include", { fg = colours.cyan })
-  group("@string", { fg = colours.green })
-  group("@string.escape", { fg = colours.orange })
-  group("@number", { fg = colours.orange })
-  group("@float", { fg = colours.orange })
-  group("@boolean", { fg = colours.yellow })
-  group("@parameter", { fg = colours.purple })
-  group("@field", { fg = colours.purple })
-  group("@repeat", { fg = colours.yellow })
-  group("@label", { fg = colours.yellow })
+  group("@constant.builtin", { fg = colours.blue, italic = true })
+  group("@constant.macro", { fg = colours.blue, italic = true })
+  group("@constant", { fg = colours.fg })
+  group("@constructor", { fg = colours.brown })
+  group("@exception", { fg = colours.red })
+  group("@field", { fg = colours.green })
+  group("@float", { fg = colours.purple })
+  group("@function.builtin", { fg = colours.green, bold = true })
+  group("@function.macro", {  fg = colours.green, bold = true })
+  group("@include", { fg = colours.red })
+  group("@keyword", { fg = colours.red })
+  group("@keyword.function", { fg = colours.red })
+  group("@keyword.operator", { fg = colours.orange })
+  group("@label", { fg = colours.orange })
+  group("@method", { fg = colours.green, bold = true })
+  group("@namespace", { fg = colours.yellow, italic = true })
+  group("@none", { fg = colours.fg })
+  group("@number", { fg = colours.purple })
+  group("@operator", { fg = colours.orange })
+  group("@parameter", { fg = colours.fg })
+  group("@parameter.reference", { fg = colours.fg })
+  group("@property", { fg = colours.fg })
+  group("@punctuation", { fg = colours.fg })
+  group("@punctuation.bracket", { fg = colours.fg })
+  group("@punctuation.delimiter", { fg = colours.grey })
+  group("@punctuation.special", { fg = colours.blue })
+  group("@repeat", { fg = colours.red })
+  group("@storageclass", { fg = colours.orange })
+  group("@string", { fg = colours.cyan })
+  group("@string.escape", { fg = colours.green })
+  group("@string.special", { fg = colours.green })
+  group("@string.regex", { fg = colours.green })
+  group("@symbol", { fg = colours.fg })
+  group("@tag", { fg = colours.orange })
+  group("@tag.delimiter", { fg = colours.green })
+  group("@text", { fg = colours.green })
+  group("@strike", { fg = colours.grey })
+  group("@math", { fg = colours.blue })
   group("@type", { fg = colours.yellow })
-  group("@exception", { fg = colours.yellow })
-  group("@type.definition", { fg = colours.yellow })
-  group("@storageclass", { fg = colours.yellow })
-  group("@operator", { fg = colours.fg_dark })
-  group("@punctuation", { fg = colours.fg_dark })
+  group("@type.builtin", { fg = colours.yellow, italic = true })
+  group("@uri", { fg = colours.blue, underline = true })
+  group("@variable", { fg = colours.fg })
+  group("@variable.builtin", { fg = colours.blue, italic = true })
+  group("@structure", { fg = colours.red })
 
   return colours
 end
