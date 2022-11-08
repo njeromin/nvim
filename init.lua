@@ -9,9 +9,8 @@ _G.import = function (pkg_name, pkg_handler)
 end
 import("import", function (imp) _G.import = imp.import end)
 
--- require core + theme
+-- require core
 require("core.options")
-require("theme")
 require("core.packer")
 require("core.mappings")
 

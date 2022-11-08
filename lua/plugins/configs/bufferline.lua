@@ -25,5 +25,5 @@ require("bufferline").setup({
 })
 
 -- mappings
-vim.keymap.set({ "n", "i" }, "<Tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "i" }, "<C-Tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true })

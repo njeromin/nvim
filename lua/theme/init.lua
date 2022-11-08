@@ -45,6 +45,7 @@ import("theme.themes."..theme_name, function (t)
     -- tree
     group("NeoTreeNormal", { fg = colours.fg, bg = colours.bg_dark })
     group("NeoTreeNormalNC", groups.NeoTreeNormal)
+    group("NeoTreeCursorLine", { bg = lighten(groups.NeoTreeNormal.bg, 4) })
     group("NeoTreeWinSeparator", { fg = groups.NeoTreeNormal.bg, bg = groups.NeoTreeNormal.bg })
     group("NeoTreeDirectoryIcon", { fg = colours.primary })
     group("NeoTreeDirectoryName", groups.NeoTreeDirectoryIcon)

@@ -111,10 +111,12 @@ return function (u)
   }
   u {
     "petertriho/nvim-scrollbar",
+    event = "BufRead",
     config = function () import("plugins.configs.scrollbar") end,
   }
   u {
     "lewis6991/gitsigns.nvim",
+    event = "BufRead",
     config = function () require("gitsigns").setup() end,
   }
   u {
@@ -136,6 +138,7 @@ return function (u)
   }
   u {
     "ziontee113/icon-picker.nvim",
+    module = "icon-picker",
     config = function () import("plugins.configs.icon-picker") end,
   }
   u {
@@ -159,10 +162,5 @@ return function (u)
   -- language plugins
   u {
     "ziglang/zig.vim",
-  }
-
-  u {
-    "alec-gibson/nvim-tetris",
-    cmd = "Tetris",
   }
 end
