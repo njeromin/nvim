@@ -1,7 +1,5 @@
 local utils = require("theme.utils")
 
--- TODO: fix treesitter highlights
-
 -- https://camo.githubusercontent.com/410b3ab80570bcd5b470a08d84f93caa5b4962ccd994ebceeb3d1f78364c2120/687474703a2f2f692e696d6775722e636f6d2f776136363678672e706e67
 return function (group, groups)
   local colours = {

@@ -17,7 +17,7 @@ require("bufferline").setup({
     indicator = {
       style = "underline",
     },
-    always_show_bufferline = false,
+    always_show_bufferline = true,
     close_command = close,
     middle_mouse_command =  close,
     separator_style = "thin",

@@ -17,6 +17,7 @@ import("theme.themes."..theme_name, function (t)
     group("Title", { fg = colours.primary, bold = true })
     group("NonText", { fg = colours.fg_dark })
     group("Error", { fg = colours.red, bg = "NONE", bold = true })
+    group("ErrorMsg", { fg = colours.red, bg = "NONE" })
 
     group("Pmenu", { fg = colours.fg_dark, bg = darken(colours.bg_dark, 6) })
     group("PmenuSel", { fg = colours.fg, bg = colours.bg })

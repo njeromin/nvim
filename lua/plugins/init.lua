@@ -82,13 +82,21 @@ return function (u)
     requires = {
       { "folke/neodev.nvim", module = "neodev" },
       { "simrat39/rust-tools.nvim", module = "rust-tools" },
+      { "jose-elias-alvarez/typescript.nvim", module = "typescript" },
       { "someone-stole-my-name/yaml-companion.nvim", module = "yaml-companion" },
+      { "b0o/SchemaStore.nvim", module = "schemastore" },
     },
     config = function () import("plugins.configs.lsp") end,
   }
   u {
     "j-hui/fidget.nvim",
     config = function () import("plugins.configs.fidget") end,
+  }
+
+  -- formatting
+  u {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function () import("plugins.configs.null") end,
   }
 
   -- general
@@ -157,6 +165,10 @@ return function (u)
   u {
     "akinsho/toggleterm.nvim",
     config = function () import("plugins.configs.toggleterm") end,
+  }
+  u {
+    "m-demare/attempt.nvim",
+    config = function () import("plugins.configs.attempt") end,
   }
 
   -- language plugins

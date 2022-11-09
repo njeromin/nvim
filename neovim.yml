@@ -4,6 +4,10 @@ base: lua52
 globals:
   import:
     any: true
+  groups:
+    any: true
+  colours:
+    any: true
   vim:
     any: true
   assert:
