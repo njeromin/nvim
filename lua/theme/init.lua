@@ -9,7 +9,7 @@ local theme_name = require("user.options").theme
 
 import("theme.themes."..theme_name, function (t)
   if type(t) == "function" then
-    _G.colours = t(group, groups)
+    _G.colours = t()
 
     -- vim
     group("Normal", { fg = colours.fg, bg = colours.bg })

@@ -1,7 +1,5 @@
-local utils = require("theme.utils")
-
 -- modified radium theme
-return function (group, groups)
+return function ()
   local colours = {
     bg = "#101317",
     bg_dark = "#191d22",
@@ -37,7 +35,7 @@ return function (group, groups)
   group("@keyword", { fg = colours.purple })
   group("@conditional", { fg = colours.purple })
   group("@structure", { fg = colours.purple })
-  group("@variable", { fg = colours.red })
+  group("@variable", { fg = colours.fg })
   group("@constant", { fg = colours.orange })
   group("@constant.builtin", { fg = colours.yellow })
   group("@constant.macro", { fg = colours.purple })

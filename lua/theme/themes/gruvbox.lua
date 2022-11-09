@@ -1,7 +1,4 @@
-local utils = require("theme.utils")
-
--- https://camo.githubusercontent.com/410b3ab80570bcd5b470a08d84f93caa5b4962ccd994ebceeb3d1f78364c2120/687474703a2f2f692e696d6775722e636f6d2f776136363678672e706e67
-return function (group, groups)
+return function ()
   local colours = {
     bg = "#282828",
     bg_dark = "#1f1f1f", -- bg0_h
@@ -20,7 +17,7 @@ return function (group, groups)
     primary = "#689d6a", --gruvbox dark aqua
   }
 
-  -- syntax/treesitter
+  -- default syntax
   group("Comment", { fg = colours.grey })
   group("Identifier", { fg = colours.blue })
   group("Statement", { fg = colours.red })
@@ -31,6 +28,7 @@ return function (group, groups)
   group("Number", { fg = colours.purple })
   group("Conditional", { fg = colours.red })
 
+  -- treesitter
   group("@annotation", { fg = colours.purple })
   group("@attribute", { fg = colours.purple })
   group("@boolean", { fg = colours.purple })

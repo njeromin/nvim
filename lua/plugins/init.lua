@@ -170,6 +170,10 @@ return function (u)
     "m-demare/attempt.nvim",
     config = function () import("plugins.configs.attempt") end,
   }
+  u {
+    "uga-rosa/ccc.nvim",
+    config = function () import("plugins.configs.ccc") end,
+  }
 
   -- language plugins
   u {

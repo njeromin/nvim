@@ -1,6 +1,4 @@
-local utils = require("theme.utils")
-
-return function (group, groups)
+return function ()
   local colours = {
     bg = "#252931",
     bg_dark = "#1d2025",

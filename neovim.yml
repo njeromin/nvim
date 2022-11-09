@@ -8,6 +8,12 @@ globals:
     any: true
   colours:
     any: true
+  darken:
+    any: true
+  lighten:
+    any: true
+  group:
+    any: true
   vim:
     any: true
   assert:
