@@ -174,6 +174,10 @@ return function (u)
     "uga-rosa/ccc.nvim",
     config = function () import("plugins.configs.ccc") end,
   }
+  u {
+    "folke/which-key.nvim",
+    config = function () import("core.mappings") end,
+  }
 
   -- language plugins
   u {

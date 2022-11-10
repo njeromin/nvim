@@ -35,16 +35,11 @@ local function attempt_register(t, source_name)
   end
 end
 
-mason_null.setup_handlers {
-  selene = function (n)
+mason_null.setup_handlers({
+  --[[ selene = function (n)
     attempt_register("diagnostics", n)
-  end,
-  stylua = function (n)
-    attempt_register("formatting", n)
-  end,
-  --[[ eslint_d = function (n)
-    attempt_register("code_actions", n)
-    attempt_register("diagnostics", n)
+  end, ]]
+  --[[ stylua = function (n)
     attempt_register("formatting", n)
   end, ]]
-}
+})

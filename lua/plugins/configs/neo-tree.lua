@@ -29,5 +29,3 @@ tree.setup({
     use_libuv_file_watcher = true,
   },
 })
-
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal<cr>", { noremap = true, silent = true })

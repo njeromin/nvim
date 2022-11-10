@@ -12,7 +12,6 @@ import("import", function (imp) _G.import = imp.import end)
 -- require core
 require("core.options")
 require("core.packer")
-require("core.mappings")
 
 -- load neovide config if needed
 if vim.g.neovide then
