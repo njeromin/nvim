@@ -52,12 +52,7 @@ return function ()
   group("Underline", { fg = colours.fg_dark })
   group("Conceal", { fg = colours.fg_dark })
   group("Ignore", { fg = colours.fg_dark })
-  group("Error", { fg = colours.red, undercurl = true })
   group("Todo", { fg = colours.fg_dark })
-  group("SpellBad", { fg = colours.red, undercurl = true })
-  group("SpellCap", { fg = colours.red, undercurl = true })
-  group("SpellRare", { fg = colours.red, undercurl = true })
-  group("SpellLocal", { fg = colours.red, undercurl = true })
   group("Whitespace", { fg = colours.bg_dark })
 
   -- treesitter
