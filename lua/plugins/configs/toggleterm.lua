@@ -23,4 +23,4 @@ require("toggleterm").setup({
 })
 
 -- mappings
-vim.keymap.set({ "n", "i" }, "<A-f>", "<cmd>ToggleTerm direction=float<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "i", "t" }, "<A-f>", "<cmd>ToggleTerm direction=float<cr>", { noremap = true, silent = true })

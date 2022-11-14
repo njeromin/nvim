@@ -1,7 +1,7 @@
 local el = require("el")
 local builtin = require("el.builtin")
-local extensions = require('el.extensions')
-local subscribe = require('el.subscribe')
+local extensions = require("el.extensions")
+local subscribe = require("el.subscribe")
 local utils = require("plugins.configs.statusline.utils")
 
 group("StatusLine", { fg = colours.fg, bg = darken(colours.bg, 2) })
@@ -26,6 +26,7 @@ local function generator(window, buffer)
       end
     )
   )
+
   table.insert(segments, " ")
   table.insert(segments, builtin.tail_file)
   table.insert(segments, builtin.modified)
@@ -33,8 +34,11 @@ local function generator(window, buffer)
   table.insert(segments, utils.sep("tri_right", "SL_Sep2"))
   table.insert(segments, utils.reset())
 
+  -- everything past this is on the right
   table.insert(segments, "%=")
   
+  table.insert(segments, require("plugins.configs.statusline.comps.lsp_attached"))
+
   table.insert(segments, utils.sep("tri_left", "SL_Sep2"))
   table.insert(segments, "%#SL_Light#")
   table.insert(segments, " ")
