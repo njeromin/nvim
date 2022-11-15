@@ -178,6 +178,9 @@ return function (u)
     "folke/which-key.nvim",
     config = function () import("core.mappings") end,
   }
+  u {
+    "gpanders/editorconfig.nvim",
+  }
 
   -- language plugins
   u {
