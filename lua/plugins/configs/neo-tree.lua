@@ -12,9 +12,6 @@ tree.setup({
     indent = {
       with_expanders = true,
     },
-    modified = {
-      symbol = "",
-    },
   },
   window = {
     width = "20%",

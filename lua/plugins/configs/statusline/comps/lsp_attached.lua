@@ -12,5 +12,5 @@ return function (win, buf)
 
   local attached = table.concat(client_names, ", ")
   if attached == "" then attached = "No LSP" end
-  return string.format("%s  %s%s%s ", "%#LspAttached_Icon#", "%#LspAttached_Text#", attached, "%#StatusLine#")
+  return string.format("%s   %s%s%s ", "%#LspAttached_Icon#", "%#LspAttached_Text#", attached, "%#StatusLine#")
 end
