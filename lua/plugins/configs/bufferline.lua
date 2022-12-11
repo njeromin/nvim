@@ -12,18 +12,14 @@ require("bufferline").setup({
         text = "",
         highlight = "NeoTreeNormal",
         separator = true,
-      }
+      },
     },
     indicator = {
       style = "underline",
     },
     always_show_bufferline = true,
     close_command = close,
-    middle_mouse_command =  close,
+    middle_mouse_command = close,
     separator_style = "thin",
   },
 })
-
--- mappings
-vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-Tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true })

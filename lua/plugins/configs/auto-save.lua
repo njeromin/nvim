@@ -23,5 +23,5 @@ require("auto-save").setup({
     end
 
     return false
-  end
+  end,
 })

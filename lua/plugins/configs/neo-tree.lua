@@ -1,13 +1,8 @@
 vim.g.neo_tree_remove_legacy_commands = 1
 
-local tree = require("neo-tree")
-
-tree.setup({
+require("neo-tree").setup({
   enable_git_status = false,
   popup_border_style = "solid",
-  source_selector = {
-    winbar = false,
-  },
   default_component_configs = {
     indent = {
       with_expanders = true,

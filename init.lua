@@ -1,19 +1,20 @@
-pcall(require, "impatient")
+---- core ----
+require("core")
 
--- set up import global
-_G.import = function (pkg_name, pkg_handler)
-  local ok, pkg = pcall(require, pkg_name)
-  if ok then
-    pkg_handler(pkg)
-  end
-end
-import("import", function (imp) _G.import = imp.import end)
+-- load impatient
+core.load_feature("impatient")
+core.load_feature("disable_builtins")
+core.load_feature("disable_providers")
+core.load_feature("autocommands")
 
--- require core
-require("core.options")
-require("core.packer")
+-- load user options
+core.load_options()
+core.load_feature("neovide")
+core.load_feature("mappings")
 
--- load neovide config if needed
-if vim.g.neovide then
-  require("core.neovide")
-end
+-- lsp and completion
+core.load_feature("completion")
+core.load_feature("lsp")
+
+-- load plugins
+core.load_feature("packer")
