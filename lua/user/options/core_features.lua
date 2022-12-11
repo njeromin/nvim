@@ -2,6 +2,7 @@ return {
   ["impatient"] = true,
   ["mappings"] = true,
   ["lsp"] = true,
+  ["dap"] = true,
   ["completion"] = true,
   ["snippets"] = true,
   ["autocommands"] = true,

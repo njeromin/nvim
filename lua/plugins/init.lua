@@ -17,7 +17,6 @@ return {
   },
   {
     "stevearc/dressing.nvim",
-    module = "dressing",
     config = function () require("plugins.configs.dressing") end,
   },
 
@@ -90,6 +89,10 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
     config = function () require("gitsigns").setup() end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    config = function () vim.notify = require("notify") end,
   },
   {
     "folke/tokyonight.nvim",

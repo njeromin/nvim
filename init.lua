@@ -16,6 +16,7 @@ core.load_feature("interface")
 -- lsp and completion
 core.load_feature("snippets")
 core.load_feature("completion")
+core.load_feature("dap")
 core.load_feature("lsp")
 
 -- load plugins

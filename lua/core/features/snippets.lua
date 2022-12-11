@@ -21,7 +21,10 @@ return {
   packer = {
     {
       "rafamadriz/friendly-snippets",
-      module = "cmp_nvim_lsp",
+      module = "cmp_nvim_lsp", -- load when cmp_nvim_lsp is loaded
+    },
+    {
+      "saadparwaiz1/cmp_luasnip",
     },
     {
       "L3MON4D3/LuaSnip",

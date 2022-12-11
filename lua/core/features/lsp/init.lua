@@ -31,6 +31,7 @@ return {
       "neovim/nvim-lspconfig",
       requires = {
         { "folke/neodev.nvim", module = "neodev" },
+        { "simrat39/rust-tools.nvim", module = "rust-tools" }
       },
       config = module,
     },
