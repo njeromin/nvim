@@ -32,9 +32,6 @@ return {
   -- mason --
   { 
     "williamboman/mason.nvim",
-    requires = {
-      { "williamboman/mason-lspconfig.nvim", disable = not core.enabled_features["lsp"] },
-    },
     config = function () require("mason").setup() end,
   },
 

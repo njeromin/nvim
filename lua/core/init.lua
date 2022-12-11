@@ -25,9 +25,19 @@ core.load_options = function ()
   end
 end
 
+local function load_plugins_table()
+  local ok, plugins = pcall(require, "plugins")
+  if ok then
+    return plugins
+  else
+    print(string.format("Failed to load plugins : %s", plugins))
+    return {}
+  end
+end
+
 core.enabled_features = vim.tbl_extend("keep", { ["packer"] = true }, require("user.options.core_features") or {})
 core.loaded_features = {}
-core.plugins = require("plugins")
+core.plugins = load_plugins_table()
 core.load_feature = function (feature_name)
   -- check if feature is enabled
   local ef = core.enabled_features[feature_name]
@@ -35,10 +45,13 @@ core.load_feature = function (feature_name)
 
   -- load feature, printing error if it fails
   local ok, res = pcall(require, string.format("core.features.%s", feature_name))
-  if not ok then print(string.format("Failed to load core feature '%s' : %s", feature_name, res)) end
+  if not ok then 
+    print(string.format("Failed to load core feature '%s' : %s", feature_name, res))
+    return
+  end
 
   if type(res.packer) == "table" then
-    vim.list_extend(core.plugins, res.packer)
+    core.plugins = vim.list_extend(core.plugins, res.packer)
   end
 
   -- check if dependencies of the feature are loaded

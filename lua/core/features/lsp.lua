@@ -46,6 +46,7 @@ return {
     { "hrsh7th/cmp-nvim-lsp",
       disabled = not core.enabled_features["completion"],
     },
+    { "williamboman/mason-lspconfig.nvim" },
     {
       "neovim/nvim-lspconfig",
       requires = {

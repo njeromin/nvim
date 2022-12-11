@@ -14,6 +14,6 @@ end
 return {
   module = module,
   packer = {
-    "lewis6991/impatient.nvim",
+    { "lewis6991/impatient.nvim" },
   },
 }
