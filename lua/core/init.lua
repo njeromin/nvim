@@ -13,11 +13,6 @@ core.load_options = function ()
   vim.opt.autoindent = indent.auto or true
   if indent.style == "spaces" then vim.opt.expandtab = true end
 
-  -- gui
-  local font_name = core.options.editor.font.name
-  local font_size = core.options.editor.font.size
-  vim.opt.guifont = string.format("%s:h%s", font_name, font_size)
-
   -- vim --
   core.options["vim"] = require("user.options.vim")
   for k, v in pairs(core.options.vim) do
