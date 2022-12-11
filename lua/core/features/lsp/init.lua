@@ -1,30 +1,10 @@
-local function get_capabilities()
-  local cmp_nvim_ok, cmp_nvim = pcall(require, "cmp_nvim_lsp")
-  if cmp_nvim_ok then return cmp_nvim.default_capabilities() end
-
-  return vim.lsp.protocol.make_client_capabilities()
-end
-
-local function handlers()
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-      underline = true,
-      virtual_text = {
-        spacing = 5,
-        severity_limit = 'Warning',
-      },
-      update_in_insert = true,
-    }
-  )
-end
-
 local function module()
+  local utils = require("core.features.lsp.utils")
   local lspconfig = require("lspconfig")
 
-  handlers()
+  utils.handlers()
 
-  local default_config = { capabilities = get_capabilities() }
+  local default_config = { capabilities = utils.get_capabilities() }
 
   local mason_lspconfig = require("mason-lspconfig")
   mason_lspconfig.setup()

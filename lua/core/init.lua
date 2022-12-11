@@ -16,7 +16,7 @@ core.load_options = function ()
   -- gui
   local font_name = core.options.editor.font.name
   local font_size = core.options.editor.font.size
-  vim.opt.guifont = string.format("%s:%s", font_name, font_size)
+  vim.opt.guifont = string.format("%s:h%s", font_name, font_size)
 
   -- vim --
   core.options["vim"] = require("user.options.vim")

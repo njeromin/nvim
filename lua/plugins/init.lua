@@ -6,7 +6,6 @@ return {
   },
   {
     "MunifTanjim/nui.nvim",
-    module = "nui",
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -16,7 +15,12 @@ return {
     "famiu/bufdelete.nvim",
     module = "bufdelete",
   },
-  
+  {
+    "stevearc/dressing.nvim",
+    module = "dressing",
+    config = function () require("plugins.configs.dressing") end,
+  },
+
   -- treesitter --
   {
     "nvim-treesitter/nvim-treesitter",
@@ -30,7 +34,7 @@ return {
   },
 
   -- mason --
-  { 
+  {
     "williamboman/mason.nvim",
     config = function () require("mason").setup() end,
   },
@@ -41,7 +45,6 @@ return {
     config = function () require("plugins.configs.neo-tree") end,
     module = "neo-tree",
     cmd = "Neotree",
-
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -59,11 +62,37 @@ return {
     config = function () require("plugins.configs.auto-save") end,
   },
   {
-    "catppuccin/nvim",
-    as = "catppuccin",
-    config = function ()
-      require("catppuccin").setup({ flavour = "mocha" })
-      vim.cmd.colorscheme("catppuccin")
-    end,
-  }
+    "utilyre/barbecue.nvim",
+    requires = { "smiteshp/nvim-navic" },
+    event = "BufRead",
+    config = function () require("barbecue").setup() end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function () require("plugins.configs.autopairs") end,
+  },
+  {
+    "gpanders/editorconfig.nvim",
+    event = "InsertEnter"
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPost",
+    config = function () require("plugins.configs.indent-blankline") end,
+  },
+  {
+    "numToStr/Comment.nvim",
+    event = "BufEnter",
+    config = function () require("Comment").setup() end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "BufReadPost",
+    config = function () require("gitsigns").setup() end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    config = function () vim.cmd("colorscheme tokyonight") end,
+  },
 }

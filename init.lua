@@ -11,8 +11,10 @@ core.load_feature("autocommands")
 core.load_options()
 core.load_feature("neovide")
 core.load_feature("mappings")
+core.load_feature("interface")
 
 -- lsp and completion
+core.load_feature("snippets")
 core.load_feature("completion")
 core.load_feature("lsp")
 

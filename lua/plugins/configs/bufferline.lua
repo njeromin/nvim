@@ -15,11 +15,22 @@ require("bufferline").setup({
       },
     },
     indicator = {
-      style = "underline",
+      style = "none", -- "underline" | "none"
     },
     always_show_bufferline = true,
     close_command = close,
     middle_mouse_command = close,
     separator_style = "thin",
+    show_close_icon = false,
+
+    custom_areas = {
+      right = function ()
+        local res = {}
+
+        table.insert(res, "test")
+
+        return res
+      end,
+    },
   },
 })
