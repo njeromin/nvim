@@ -2,17 +2,7 @@
 base: lua52
 
 globals:
-  import:
-    any: true
-  groups:
-    any: true
-  colours:
-    any: true
-  darken:
-    any: true
-  lighten:
-    any: true
-  group:
+  core:
     any: true
   vim:
     any: true

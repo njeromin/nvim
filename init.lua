@@ -18,6 +18,10 @@ core.load_feature("snippets")
 core.load_feature("completion")
 core.load_feature("dap")
 core.load_feature("lsp")
+core.load_feature("formatting")
+
+-- extra features
+core.load_feature("terminal")
 
 -- load plugins
 core.load_feature("packer")
