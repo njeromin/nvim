@@ -20,6 +20,11 @@ return {
     config = function () require("plugins.configs.dressing") end,
   },
 
+  {
+    "folke/tokyonight.nvim",
+    config = function () vim.cmd("colorscheme tokyonight") end,
+  },
+
   -- treesitter --
   {
     "nvim-treesitter/nvim-treesitter",
@@ -93,9 +98,5 @@ return {
   {
     "rcarriga/nvim-notify",
     config = function () vim.notify = require("notify") end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    config = function () vim.cmd("colorscheme tokyonight") end,
   },
 }

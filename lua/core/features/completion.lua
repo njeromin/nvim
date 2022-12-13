@@ -7,8 +7,6 @@ local function module()
     core.loaded_features["snippets"] and { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "emoji" },
-    { name = "fonts", option = { space_filter = "-" } }
   }
 
   cmp.setup({
@@ -73,11 +71,8 @@ return {
     {
       "hrsh7th/nvim-cmp",
       requires = {
-        --"chrisgrieser/cmp-nerdfont",
-        "hrsh7th/cmp-emoji",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "amarakon/nvim-cmp-fonts",
 
         "lukas-reineke/cmp-under-comparator",
       },
