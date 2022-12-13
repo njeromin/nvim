@@ -1,10 +1,20 @@
 local function module()
-  require("null-ls").setup()
+  local null = require("null-ls")
   local mason_null = require("mason-null-ls")
-  mason_null.setup({
-    automatic_setup = true,
+  mason_null.setup({})
+  mason_null.setup_handlers({})
+  null.setup({
+    on_attach = function (client, bufnr)
+      if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = "LspFormatting", buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = "LspFormatting",
+          buffer = bufnr,
+          callback = function () vim.lsp.buf.format({ bufnr = bufnr }) end,
+        })
+      end
+    end,
   })
-  mason_null.setup_handlers()
 end
 
 return {
