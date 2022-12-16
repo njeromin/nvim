@@ -9,6 +9,7 @@ core.load_feature("autocommands")
 
 -- load user options
 core.load_options()
+core.load_feature("theme")
 core.load_feature("neovide")
 core.load_feature("mappings")
 core.load_feature("interface")

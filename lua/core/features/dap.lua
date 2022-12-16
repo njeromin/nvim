@@ -1,6 +1,8 @@
 local function module()
   local mason_dap = require("mason-nvim-dap")
-  mason_dap.setup()
+  mason_dap.setup({
+    automatic_setup = false,
+  })
   mason_dap.setup_handlers({
     function (sname)
       local ok, handler = pcall(require, string.format("dap_settings.%s", sname))

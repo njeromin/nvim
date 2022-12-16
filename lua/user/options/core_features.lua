@@ -11,5 +11,6 @@ return {
   ["disable_providers"] = true,
   ["disable_builtins"] = true,
   ["interface"] = true,
+  ["theme"] = true,
   ["neovide"] = vim.g.neovide or false,
 }

@@ -20,10 +20,10 @@ return {
     config = function () require("plugins.configs.dressing") end,
   },
 
-  {
+  --[[ {
     "folke/tokyonight.nvim",
     config = function () vim.cmd("colorscheme tokyonight") end,
-  },
+  }, ]]
 
   -- treesitter --
   {
@@ -94,6 +94,10 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
     config = function () require("gitsigns").setup() end,
+  },
+  {
+    "eandrju/cellular-automaton.nvim",
+    cmd = "CellularAutomaton",
   },
   {
     "rcarriga/nvim-notify",
