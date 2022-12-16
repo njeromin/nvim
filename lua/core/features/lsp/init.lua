@@ -30,6 +30,7 @@ return {
     {
       "neovim/nvim-lspconfig",
       requires = {
+        { "mfussenegger/nvim-jdtls", module = "jdtls" },
         { "folke/neodev.nvim", module = "neodev" },
         { "simrat39/rust-tools.nvim", module = "rust-tools" }
       },
