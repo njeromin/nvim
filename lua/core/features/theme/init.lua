@@ -3,11 +3,13 @@ local function default_highlights(t, hl)
 
   hl.set("Normal", { bg = theme.background.base, fg = theme.foreground.base })
   hl.set("NormalNC", hl.get("Normal"))
+  hl.set("NonText", { fg = theme.foreground.secondary })
   hl.set("CursorLine", { bg = theme.cursor_line })
   hl.set("Visual", { bg = theme.visual })
   hl.set("SignColumn", { bg = theme.background.base, fg = theme.sign_column })
   hl.set("CursorLineNr", { fg = theme.colours.blue })
   hl.set("LineNr", { fg = theme.line_number })
+  hl.set("Search", { fg = "#111111", bg = theme.colours.primary })
 
   hl.set("Pmenu", {  fg = theme.foreground.base, bg = theme.background.pmenu })
   hl.set("PmenuSbar", hl.get("Pmenu"))
@@ -35,41 +37,29 @@ local function default_highlights(t, hl)
   hl.set("BarbecueDirname", { fg = theme.colours.light_grey })
   hl.set("BarbecueSeparator", { fg = theme.colours.grey })
 
-  local syntax = {
-    String = {},
-    Character = {},
-    Number = {},
-    Float = {},
-    Boolean = {},
-    Type = {},
-    Identifier = {},
-    Constant = {},
-    Function = {},
-    Statement = {},
-    PreProc = {},
-    PreCondit = {},
-    Include =  {},
-    Keyword = {},
-    Define = {},
-    Typedef = {},
-    Exception = {},
-    Conditional = {},
-    Repeat = {},
-    Macro = {},
-    Error = {},
-    Label = {},
-    Special = {},
-    SpecialChar = {},
-    Operator = {},
-    Title = {},
-    Tag = {},
-    Comment = {},
-    Delimiter = {},
-    SpecialComment = {},
-    Todo = {},
-  }
-  for k, v in pairs(syntax) do
-    hl.set(k, vim.tbl_extend("keep", v or {}, { fg = theme.syntax[k] }))
+  hl.set("TelescopeNormal", { bg = theme.telescope.background })
+  hl.set("TelescopeTitle", { fg = "#111111", bg = theme.colours.blue })
+  hl.set("TelescopeBorder", { fg = theme.telescope.background, bg = theme.telescope.background })
+  hl.set("TelescopeSelection", { bg = theme.telescope.selection })
+  hl.set("TelescopeSelectionCaret", { fg = theme.colours.primary, bg = theme.telescope.selection })
+  hl.set("TelescopeResultsNormal", { bg = theme.telescope.results_background })
+  hl.set("TelescopeResultsTitle", { fg = "#111111", bg = theme.colours.green })
+  hl.set("TelescopePreviewNormal", { bg = theme.telescope.preview_background })
+  hl.set("TelescopePreviewTitle", { fg = "#111111", bg = theme.colours.red })
+  hl.set("TelescopePreviewBorder", { fg = theme.telescope.preview_background, bg = theme.telescope.preview_background })
+
+  local syntax_overrides = {}
+  for k, v in pairs(theme.syntax) do
+    local highlight = { fg = v }
+    if syntax_overrides[k] then highlight = vim.tbl_extend("keep", syntax_overrides[k], highlight) end
+    hl.set(k, highlight)
+  end
+
+  local treesitter_overrides = {}
+  for k, v in pairs(theme.treesitter) do
+    local highlight = type(v) == "table" and v or { fg = v }
+    if syntax_overrides[k] then highlight = vim.tbl_extend("keep", syntax_overrides[k], highlight) end
+    hl.set(k, highlight)
   end
 end
 
