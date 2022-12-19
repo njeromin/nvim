@@ -20,11 +20,6 @@ return {
     config = function () require("plugins.configs.dressing") end,
   },
 
-  --[[ {
-    "folke/tokyonight.nvim",
-    config = function () vim.cmd("colorscheme tokyonight") end,
-  }, ]]
-
   -- treesitter --
   {
     "nvim-treesitter/nvim-treesitter",
@@ -98,6 +93,10 @@ return {
   {
     "eandrju/cellular-automaton.nvim",
     cmd = "CellularAutomaton",
+  },
+  {
+    "folke/trouble.nvim",
+    config = function () require("trouble").setup() end,
   },
   {
     "rcarriga/nvim-notify",
