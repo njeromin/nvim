@@ -2,15 +2,16 @@ local M = {}
 
 local colours = {
   primary = "#4895ef",
-  red = "#ff6961",
-  orange = "#ffb347",
-  yellow = "#fdfd96",
-  light_green = "#d9ed92",
+  red = "#ff7674",
+  orange = "#fac898",
+  yellow = "#fdec96",
   green = "#90be6d",
+  light_green = "#d9ed92",
   teal = "#34a0a4",
   blue = "#779ecb",
-  purple = "#9c89b8",
+  purple = "#c3b1e1",
   pink = "#f0a6ca",
+  light_pink = "#ffd1dc",
   grey = "#5b6571",
   light_grey = "#7c8c9c",
 }
@@ -37,7 +38,7 @@ M.theme = {
   },
   telescope = {
     background = "#16191d",
-    results_bg = "#1f2329",
+    results_background = "#16191d",
     preview_background = "#121417",
     selection = "#1a1e23",
   },
@@ -51,7 +52,7 @@ M.theme = {
     Number = colours.orange,
     Float = colours.orange,
     Boolean = colours.orange,
-    Type = colours.yellow,
+    Type = colours.light_pink,
     Identifier = colours.red,
     Constant = colours.teal,
     Function = colours.blue,
@@ -61,7 +62,7 @@ M.theme = {
     Include = colours.purple,
     Keyword = colours.purple,
     Define = colours.purple,
-    Typedef = colours.purple,
+    Typedef = colours.pink,
     Exception = colours.purple,
     Conditional = colours.purple,
     Repeat = colours.purple,
@@ -80,7 +81,7 @@ M.theme = {
   },
   treesitter = {
     ["@annotation"] = foreground.base,
-    ["@attribute"] = colours.teal,
+    ["@attribute"] = colours.red,
     ["@boolean"] = colours.orange,
     ["@character"] = colours.orange,
     ["@comment"] = colours.grey,
@@ -88,7 +89,7 @@ M.theme = {
     ["@constant"] = colours.orange,
     ["@constant.builtin"] = colours.orange,
     ["@constant.macro"] = colours.orange,
-    ["@constructor"] = { colours.yellow, bold = true },
+    ["@constructor"] = { fg = colours.yellow },
     ["@error"] = foreground.base,
     ["@exception"] = colours.purple,
     ["@field"] = colours.red,
@@ -108,7 +109,7 @@ M.theme = {
     ["@operator"] = foreground.base,
     ["@parameter"] = colours.red,
     ["@parameter.reference"] = foreground.base,
-    ["@property"] = colours.teal,
+    ["@property"] = colours.red,
     ["@punctuation.delimiter"] = colours.light_grey,
     ["@punctuation.bracket"] = colours.light_grey,
     ["@punctuation.special"] = colours.red,
@@ -134,7 +135,7 @@ M.theme = {
     ["@note"] = foreground.base,
     ["@warning"] = foreground.base,
     ["@danger"] = foreground.base,
-    ["@type"] = colours.purple,
+    ["@type"] = colours.light_pink,
     ["@type.builtin"] = colours.pink,
     ["@storageclass"] = colours.purple,
     ["@structure"] = colours.purple,
@@ -142,9 +143,5 @@ M.theme = {
     ["@variable.builtin"] = colours.red,
   },
 }
-
-M.custom_highlights = function (hl)
-
-end
 
 return M
