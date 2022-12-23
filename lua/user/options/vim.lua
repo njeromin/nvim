@@ -1,5 +1,6 @@
 return {
   laststatus = 3,
+  cmdheight = 1,
   title = true,
   clipboard = "unnamedplus",
   cursorline = true,

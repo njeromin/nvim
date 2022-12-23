@@ -23,6 +23,7 @@ core.load_feature("formatting")
 
 -- extra features
 core.load_feature("terminal")
+core.load_feature("statusline")
 
 -- load plugins
 core.load_feature("packer")
