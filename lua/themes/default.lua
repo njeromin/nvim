@@ -42,6 +42,10 @@ M.theme = {
     preview_background = "#121417",
     selection = "#1a1e23",
   },
+  statusline = {
+    foreground = foreground.base,
+    background = "#1d2025",
+  },
   cursor_line = "#262a31",
   visual = "#2a2f37",
   sign_column = colours.grey,

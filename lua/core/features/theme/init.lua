@@ -18,7 +18,7 @@ local function default_highlights(t, hl)
   hl.set("PmenuThumb", { bg = theme.background.tree, fg = theme.background.tree })
   hl.set("FloatBorder", { fg = theme.background.pmenu, bg = theme.background.pmenu })
 
-  hl.set("StatusLine", { bg = theme.background.tree, fg = theme.foreground.base })
+  hl.set("StatusLine", { bg = theme.statusline.background, fg = theme.statusline.foreground })
 
   hl.set("DiffAdd", { bg = "NONE", fg = theme.git.diff_add })
   hl.set("DiffRemove", { bg = "NONE", fg = theme.git.diff_remove })

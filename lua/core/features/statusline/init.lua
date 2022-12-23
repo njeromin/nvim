@@ -1,17 +1,17 @@
 local function module()
   local el = require("el")
+  local builtin = require("el.builtin")
   local extensions = require("el.extensions")
 
   local function generator(win_id)
     local s = {}
 
-    table.insert(s, extensions.mode)
+    table.insert(s, require("core.features.statusline.components.mode"))
+    s = require("core.features.statusline.components.file_info")(s)
 
     table.insert(s, "%=")
 
-    table.insert(s, "test")
-
-    table.insert(s, "%=")
+    table.insert(s, require("core.features.statusline.components.line_info"))
 
     return s
   end
