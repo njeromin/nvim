@@ -27,6 +27,7 @@ return {
       { "nvim-treesitter/nvim-treesitter-textobjects", event = "BufRead" },
       { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" },
       { "windwp/nvim-ts-autotag", event = "BufRead" },
+      { "RRethy/nvim-treesitter-endwise", ft = { "lua", "ruby", "vimscript", "bash", "elixir" } }
     },
     config = function () require("plugins.configs.treesitter") end,
     run = function () require("nvim-treesitter.install").update({ with_sync = true }) end,

@@ -11,4 +11,5 @@ treesitter.setup({
   textobjects = { lsp_interop = { enable = true } },
   context_commentstring = { enable = true },
   autotag = { enable = true },
+  endwise = { enable = true },
 })
